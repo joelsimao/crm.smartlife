@@ -1,7 +1,7 @@
 @extends('adminlte::layouts.auth')
 
 @section('htmlheader_title')
-    Register
+    Registar
 @endsection
 
 @section('content')
@@ -10,7 +10,7 @@
     <div id="app" v-cloak>
         <div class="register-box">
             <div class="register-logo">
-                <a href="{{ url('/home') }}"><b>Admin</b>LTE</a>
+                <a href="{{ url('/home') }}"><b>SmartLife</b> CRM</a>
             </div>
 
             @if (count($errors) > 0)
@@ -25,11 +25,11 @@
             @endif
 
             <div class="register-box-body">
-                <p class="login-box-msg">{{ trans('adminlte_lang::message.registermember') }}</p>
+                <p class="login-box-msg">Registar novo utilizador</p>
 
                 <register-form></register-form>
 
-                @include('adminlte::auth.partials.social_login')
+            {{--@include('adminlte::auth.partials.social_login')--}}
 
                 <a href="{{ url('/login') }}" class="text-center">{{ trans('adminlte_lang::message.membreship') }}</a>
             </div><!-- /.form-box -->
@@ -38,7 +38,7 @@
 
     @include('adminlte::layouts.partials.scripts_auth')
 
-    @include('adminlte::auth.terms')
+{{--    @include('adminlte::auth.terms')--}}
 
 </body>
 
