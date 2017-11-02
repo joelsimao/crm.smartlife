@@ -15,7 +15,9 @@ Route::get('/', function () {
     return view('adminlte::auth.login');
 });
 
-Route::get('/register', 'RegisterController@showRegistrationForm');
+Route::get('/register', function(){
+    return view('adminlte::auth.register');
+});
 
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {
