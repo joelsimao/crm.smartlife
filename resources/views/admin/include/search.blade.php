@@ -20,7 +20,7 @@
             {{ Form::text('search', isset($search) && $search!= '' ? $search : null, array('class' => 'form-control', 'id' => 'search')) }}
         </div>
         <div class="col-lg-1">
-            <button type="button" id="search_btn">Pesquisar</button>
+            <button type="button" class="btn btn-info" id="search_btn">Pesquisar</button>
         </div>
     </div>
 </div>
