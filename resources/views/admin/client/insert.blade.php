@@ -34,18 +34,6 @@
 
         $('#date_of_birth').on('change', function () {
             var date_of_birth = $(this).val();
-/*            var date = date_of_birth.split("-");
-            var year_of_birth = date[0];
-            var month_of_birth = date[1];
-            var day_of_birth = date[2];
-            var now_date = new Date();
-            var actual_day = now_date.getDate();
-            var actual_month = now_date.getMonth()+1;
-            var actual_year = now_date.getFullYear();
-            var age = actual_year - year_of_birth;
-            if(actual_month < month_of_birth || year_of_birth < year){
-                age--;
-            }*/
                 $.ajax({
                     url: "/age",
                     data: { date_of_birth: date_of_birth} ,
