@@ -19,3 +19,12 @@
 */
     });
 </script>
+
+{{--Script of the Datepickers--}}
+<script>
+    $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd',
+        language: 'pt',
+        startDate: '-3d'
+    });
+</script>

@@ -24,14 +24,3 @@
         </div>
     </div>
 </div>
-
-@section('scripts')
-@parent
-    <script>
-        $('.datepicker').datepicker({
-            format: 'yyyy-mm-dd',
-            language: 'pt',
-            startDate: '-3d'
-        });
-    </script>
-@endsection
