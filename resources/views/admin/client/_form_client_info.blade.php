@@ -19,6 +19,10 @@
         </div>
         <div class="row">
             <div class="form-group col-lg-2">
+                <label for="client[job]">Profissão:</label>
+                {{ Form::text('client[job]', isset($client) ? $client->job : null, array('class' => 'form-control')) }}
+            </div>
+            <div class="form-group col-lg-4">
                 <label for="client[date_of_birth]">Data de Nascimento:</label>
                 <div class="input-group date datepicker" data-provide="datepicker">
                     {{ Form::text('client[date_of_birth]', isset($client) ? $client->date_of_birth : null, array('class' => 'form-control')) }}
@@ -31,10 +35,7 @@
                 <label for="client[age]">Idade</label>
                 {{ Form::text('client[age]', isset($client) ? $client->age : null, array('class' => 'form-control', 'readonly')) }}
             </div>
-            <div class="form-group col-lg-4">
-                <label for="client[job]">Profissão:</label>
-                {{ Form::text('client[job]', isset($client) ? $client->job : null, array('class' => 'form-control')) }}
-            </div>
+
             <div class="form-group col-lg-4">
                 <label for="client[marital_status]">Estado Civil:</label>
                 <select name="client[marital_status_id]" class="selectpicker" id="marital_status">
