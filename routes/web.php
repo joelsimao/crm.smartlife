@@ -29,3 +29,5 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::resource('client', 'ClientController');
+
+Route::get('/age', 'ScriptController@age_calculator');

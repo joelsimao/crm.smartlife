@@ -25,7 +25,7 @@
             <div class="form-group col-lg-4">
                 <label for="client[date_of_birth]">Data de Nascimento:</label>
                 <div class="input-group date datepicker" data-provide="datepicker">
-                    {{ Form::text('client[date_of_birth]', isset($client) ? $client->date_of_birth : null, array('class' => 'form-control')) }}
+                    {{ Form::text('client[date_of_birth]', isset($client) ? $client->date_of_birth : null, array('class' => 'form-control', 'id' => 'date_of_birth')) }}
                     <div class="input-group-addon">
                         <span class="glyphicon glyphicon-th"></span>
                     </div>
@@ -33,7 +33,7 @@
             </div>
             <div class="form-group col-lg-2">
                 <label for="client[age]">Idade</label>
-                {{ Form::text('client[age]', isset($client) ? $client->age : null, array('class' => 'form-control', 'readonly')) }}
+                {{ Form::text('client[age]', isset($client) ? $client->age : null, array('class' => 'form-control', 'readonly', 'id' => 'age')) }}
             </div>
 
             <div class="form-group col-lg-4">
