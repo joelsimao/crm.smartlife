@@ -4,6 +4,7 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <link href="{{ mix('/css/all.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-datepicker.css') }}" />

@@ -267,6 +267,11 @@ return [
          */
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
 
+        /*
+         * Laracasts Flashmessages
+         */
+        Laracasts\Flash\FlashServiceProvider::class,
+
     ],
 
 ];
