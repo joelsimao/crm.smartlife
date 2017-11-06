@@ -23,7 +23,8 @@ class CreateClientsTable extends Migration
             $table->string('spouse_name')->nullable();
             $table->date('date_of_birth');
             $table->integer('age')->nullable();
-            $table->string('job');
+            $table->unsignedInteger('job_id');
+            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
             $table->string('address')->nullable();
             $table->string('zipcode');
             $table->string('city');
