@@ -21,7 +21,10 @@ class MaritalStatusSeeder extends Seeder
             ],
             [   'id' => '3',
                 'name' => 'Unido/a de Facto'
-            ]);
+            ],
+            [   'id' => '4',
+                'name' => 'Víuvo/a'
+            ],);
         foreach ($marital_statuses as $marital_status){
             MaritalStatus::create($marital_status);
         }
