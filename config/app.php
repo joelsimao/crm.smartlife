@@ -192,6 +192,11 @@ return [
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
 
         'Collective\Html\HtmlServiceProvider',
+
+        /*
+         * Zizaco Entrust
+         */
+        Zizaco\Entrust\EntrustServiceProvider::class,
     ],
 
     /*
@@ -256,6 +261,11 @@ return [
 
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
+
+        /*
+         * Zizaco Entrust
+         */
+        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
 
     ],
 
