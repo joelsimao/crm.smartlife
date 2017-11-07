@@ -26,4 +26,6 @@
         format: 'yyyy-mm-dd',
         language: 'pt',
     });
+
+    $('div.alert').delay(3000).fadeOut(350);
 </script>
