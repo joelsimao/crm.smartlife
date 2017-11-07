@@ -19,8 +19,14 @@
         </div>
         <div class="row">
             <div class="form-group col-lg-2">
-                <label for="client[job]">Profissão:</label>
-                {{ Form::text('client[job]', isset($client) ? $client->job : null, array('class' => 'form-control')) }}
+                <label for="client[job_id]">Profissão:</label>
+                <select name="client[job_id]">
+                <option value="0">Seleccione uma das opções</option>
+                    @foreach(App\Job::all() as $job)
+                        <option value="{{$job->id}}"
+                                @if(isset($client) && $job->id == $client->job_id) selected @endif>{{$job->name}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group col-lg-4">
                 <label for="client[date_of_birth]">Data de Nascimento:</label>
