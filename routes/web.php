@@ -19,6 +19,10 @@ Route::get('/register', function(){
     return view('adminlte::auth.register');
 });
 
+Route::get('/home', function(){
+    return view('adminlte::home');
+});
+
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
@@ -29,5 +33,9 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::resource('client', 'ClientController');
+
+Route::resource('job', 'JobController', ['only' => [
+    'create', 'store'
+]]);
 
 Route::get('/age', 'ScriptController@age_calculator');

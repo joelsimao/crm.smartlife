@@ -16,6 +16,12 @@
                     <li><a href="/client/create">Inserir</a></li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="#"><i class='fa fa-briefcase'></i> <span>Profissões</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="/job/create">Inserir</a></li>
+                </ul>
+            </li>
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
