@@ -38,4 +38,8 @@ Route::resource('job', 'JobController', ['only' => [
     'create', 'store'
 ]]);
 
+Route::resource('agency', 'AgencyController', ['only' => [
+    'create', 'store'
+]]);
+
 Route::get('/age', 'ScriptController@age_calculator');
