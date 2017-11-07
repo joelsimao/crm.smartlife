@@ -5,7 +5,7 @@
     <div class="box-body">
         <div class="row">
             <div class="form-group col-lg-6">
-                <label for="job[name]">Nome:</label>
+                <label for="job[name]">Nome da Profissão:</label>
                 {{ Form::text('job[name]', null, array('class' => 'form-control')) }}
             </div>
         </div>
