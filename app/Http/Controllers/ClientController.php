@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use Illuminate\Http\Request;
+use Laracasts\Flash\Flash;
 
 class ClientController extends Controller
 {
@@ -37,6 +38,7 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         Client::create($request->client);
+        flash('Cliente Inserido Com Sucesso!!!')->important()->success();
         return redirect()->back();
     }
 
