@@ -6,6 +6,7 @@
 <script src="{{ url (mix('/js/app.js')) }}" type="text/javascript"></script>
 <script src="{{ '/plugins/bootstrap-datepicker.js' }}"></script>
 <script src="{{ '/plugins/bootstrap-datepicker.pt.js' }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
       Both of these plugins are recommended to enhance the
@@ -28,4 +29,11 @@
     });
 
     $('div.alert').delay(3000).fadeOut(350);
+</script>
+
+{{--Script of select2--}}
+<script>
+    $(document).ready(function() {
+        $('.js-select').select2();
+    });
 </script>

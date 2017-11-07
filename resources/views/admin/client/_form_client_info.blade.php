@@ -18,10 +18,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="form-group col-lg-2">
+            <div class="form-group col-lg-3">
                 <label for="client[job_id]">Profissão:</label>
-                <select name="client[job_id]">
-                <option value="0">Seleccione uma das opções</option>
+                <select name="client[job_id]" class="form-control js-select">
+                    <option value="0" disabled selected>Seleccione uma das opções</option>
                     @foreach(App\Job::all() as $job)
                         <option value="{{$job->id}}"
                                 @if(isset($client) && $job->id == $client->job_id) selected @endif>{{$job->name}}</option>
@@ -37,15 +37,15 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group col-lg-2">
+            <div class="form-group col-lg-1">
                 <label for="client[age]">Idade</label>
                 {{ Form::text('client[age]', isset($client) ? $client->age : null, array('class' => 'form-control', 'readonly', 'id' => 'age')) }}
             </div>
 
-            <div class="form-group col-lg-4">
+            <div class="form-group col-lg-3">
                 <label for="client[marital_status]">Estado Civil:</label>
-                <select name="client[marital_status_id]" class="selectpicker" id="marital_status">
-                    <option value="0">Seleccione uma das opções</option>
+                <select name="client[marital_status_id]" class="form-control" id="marital_status">
+                    <option value="0" disabled selected>Seleccione uma das opções</option>
                     @foreach(App\MaritalStatus::all() as $marital_status)
                         <option value="{{$marital_status->id}}"
                                 @if(isset($client) && $marital_status->id == $client->marital_status_id) selected @endif>{{$marital_status->name}}</option>
