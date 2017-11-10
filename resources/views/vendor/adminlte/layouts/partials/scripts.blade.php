@@ -6,6 +6,9 @@
 <script src="{{ url (mix('/js/app.js')) }}" type="text/javascript"></script>
 <script src="{{ '/plugins/bootstrap-datepicker.js' }}"></script>
 <script src="{{ '/plugins/bootstrap-datepicker.pt.js' }}"></script>
+<script src="{{ '/plugins/moment.min.js' }}"></script>
+<script src="{{ '/plugins/bootstrap-datetimepicker.min.js' }}"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
@@ -26,6 +29,12 @@
     $('.datepicker').datepicker({
         format: 'yyyy-mm-dd',
         language: 'pt',
+    });
+
+    $(function () {
+        $('.datetimepicker3').datetimepicker({
+            format: 'HH:mm'
+        });
     });
 
     $('div.alert').delay(3000).fadeOut(350);
