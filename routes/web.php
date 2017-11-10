@@ -42,9 +42,19 @@ Route::resource('agency', 'AgencyController', ['only' => [
     'create', 'store'
 ]]);
 
-Route::resource('supervisor', 'SupervisorController');
+Route::resource('supervisor', 'SupervisorController', ['only' => [
+    'create', 'store'
+]]);
 
 Route::resource('operator', 'OperatorController', ['only' => [
+    'create', 'store'
+]]);
+
+Route::resource('manager', 'ManagerController', ['only' => [
+    'create', 'store'
+]]);
+
+Route::resource('seller', 'SellerController', ['only' => [
     'create', 'store'
 ]]);
 
