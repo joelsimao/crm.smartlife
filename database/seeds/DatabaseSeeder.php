@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
              MaritalStatusSeeder::class,
              RolePermissionSeeder::class,
              JobSeeder::class,
+             AgencySeeder::class,
              //UsersTableSeeder::class
          ]);
     }
