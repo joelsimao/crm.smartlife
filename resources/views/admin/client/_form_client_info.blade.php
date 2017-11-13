@@ -188,34 +188,44 @@
         <div class="row">
             <div class="form-group col-lg-4">
                 <label for="client[operator_code]">Cód. Operador:</label>
-                <select>
-
+                <select name="client[operator_code]" class="form-control" id="operator_code" style="width: 100%">
+                    <option value="0" disabled selected>Seleccione uma das opções</option>
+                    @foreach(App\Operator::all() as $operator)
+                        <option value="{{$operator->id}}">{{$operator->code ." - ".$operator->name}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group col-lg-2">
-                <label for="client[supervisor_id]">Supervisor:</label>
-                <select>
-
+                <label for="client[supervisor_code]">Supervisor:</label>
+                <select name="client[supervisor_code]" class="form-control" id="supervisor_code" style="width: 100%">
+                    <option value="0" disabled selected>Supervisor</option>
                 </select>
             </div>
             <div class="form-group col-lg-4">
                 <label for="client[seller_id]">Vendedor:</label>
-                <select>
-
+                <select name="client[seller_id]" class="form-control" id="seller_id" style="width: 100%">
+                    <option value="0" disabled selected>Seleccione uma das opções</option>
+                    @foreach(App\Seller::all() as $seller)
+                        <option value="{{$seller->id}}">{{$seller->name}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group col-lg-2">
                 <label for="client[manager_id]">Gerente:</label>
-                <select>
-
+                <select name="client[manager_id]" class="form-control" id="manager_id" style="width: 100%">
+                    <option value="0" disabled selected>Seleccione uma das opções</option>
+                    @foreach(App\Manager::all() as $manager)
+                        <option value="{{$manager->id}}">{{$manager->name}}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
         <div class="row">
             <div class="form-group col-lg-2">
                 <label for="client[to_id]">TO:</label>
-                <select>
-
+                <select name="client[to_id]" class="form-control" id="TO_id" style="width: 100%">
+                    <option value="1">Sim</option>
+                    <option value="0">Não</option>
                 </select>
             </div>
             <div class="form-group col-lg-4" style="text-align: right;"><label for="client[obs]">Observações:</label></div>
@@ -228,8 +238,9 @@
         <div class="row">
             <div class="form-group col-lg-6">
                 <label for="client[close]">Fecho:</label>
-                <select>
-
+                <select name="client[close]" class="form-control" id="close" style="width: 100%">
+                    <option value="1">Sim</option>
+                    <option value="0">Não</option>
                 </select>
             </div>
         </div>

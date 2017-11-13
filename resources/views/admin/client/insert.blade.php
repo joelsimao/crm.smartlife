@@ -43,6 +43,23 @@
                 });
         });
 
+        $('#operator_code').on('change', function () {
+            var operator_id = $(this).val();
+            $.ajax({
+                url: "/get_supervisor",
+                data: { operator_id: operator_id} ,
+                success: function (response) {
+                    console.log(response);
+                    $('#supervisor_code').append($('<option>', {
+                        value: response.code,
+                        text: response.code + " - " + response.name,
+                        selected: true,
+                    }));
+                    /*$('#age').val(response.age);*/
+                },
+            });
+        });
+
         $('#addHolder').on('click', function () {
             $(this).toggleClass("btn-danger").toggleClass("btn-info");
             var c = $(this).attr('class');

@@ -10,6 +10,6 @@ class Operator extends Model
 
     public function supervisor()
     {
-        return $this->hasOne('App\Supervisor');
+        return $this->belongsTo('App\Supervisor');
     }
 }
