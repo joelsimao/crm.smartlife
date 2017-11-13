@@ -32,6 +32,15 @@
             }
         });
 
+        $('#close').on('change', function () {
+            var close_id = $('#close :selected').val();
+            if( close_id != 1){
+                $('#justify_bar').removeClass('hidden');
+            } else {
+                $('#justify_bar').addClass('hidden');
+            }
+        });
+
         $('#first_holder_date_of_birth').on('change', function () {
             var date_of_birth = $(this).val();
                 $.ajax({

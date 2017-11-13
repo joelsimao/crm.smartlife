@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
              AgencySeeder::class,
              SupervisorSeeder::class,
              OperatorSeeder::class,
+             JustificationSeeder::class,
              //UsersTableSeeder::class
          ]);
     }

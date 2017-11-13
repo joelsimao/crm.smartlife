@@ -21,8 +21,8 @@ class CreateClientsTable extends Migration
 
 
             $table->string('first_holder_name');
-            $table->date('first_holder_date_of_birth');
-            $table->integer('first_holder_age')->nullable();
+            $table->date('first_holder_date_of_birth')->nullable();
+            $table->integer('first_holder_age');
             $table->unsignedInteger('first_holder_job_id');
             $table->foreign('first_holder_job_id')->references('id')->on('jobs')->onDelete('cascade');
 
@@ -32,13 +32,13 @@ class CreateClientsTable extends Migration
             $table->unsignedInteger('second_holder_job_id')->nullable();
             $table->foreign('second_holder_job_id')->references('id')->on('jobs')->onDelete('cascade');
 
-            $table->integer('nif');
-            $table->integer('phone_number')->unique();
+            $table->integer('nif')->nullable();
+            $table->integer('phone_number')->unique()->nullable();
             $table->integer('mobile_phone_number')->unique();
-            $table->string('address');
-            $table->string('zipcode');
-            $table->string('city');
-            $table->string('email')->unique();
+            $table->string('address')->nullable();
+            $table->string('zipcode')->nullable();
+            $table->string('city')->nullable();
+            $table->string('email')->unique()->nullable();
             $table->unsignedInteger('marital_status_id');
             $table->foreign('marital_status_id')->references('id')->on('marital_statuses')->onDelete('cascade');
             $table->string('spouse_name')->nullable();
@@ -50,13 +50,15 @@ class CreateClientsTable extends Migration
             $table->foreign('operator_id')->references('id')->on('operators')->onDelete('cascade');
             $table->unsignedInteger('supervisor_id');
             $table->foreign('supervisor_id')->references('id')->on('supervisors')->onDelete('cascade');
-            $table->unsignedInteger('seller_id')->nullable();
+            $table->unsignedInteger('seller_id');
             $table->foreign('seller_id')->references('id')->on('sellers')->onDelete('cascade');
-            $table->unsignedInteger('manager_id')->nullable();
+            $table->unsignedInteger('manager_id');
             $table->foreign('manager_id')->references('id')->on('managers')->onDelete('cascade');
             $table->string('to')->nullable();
             $table->text('obs')->nullable();
             $table->string('close')->nullable();
+            $table->unsignedInteger('n_close_justification_id');
+            $table->foreign('n_close_justification_id')->references('id')->on('justifications')->onDelete('cascade');
 
             $table->timestamps();
         });

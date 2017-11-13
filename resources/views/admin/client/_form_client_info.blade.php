@@ -5,7 +5,7 @@
     <div class="box-body">
         <div class="row">
             <div class="form-group col-lg-6">
-                <label for="client[visit_date]">Data de Visita*:</label>
+                <label for="client[visit_date]">Data de Visita <b>*</b>:</label>
                 <div class="input-group date datepicker" data-provide="datepicker">
                     {{ Form::text('client[visit_date]', isset($client) ? $client->visit_date : null, array('class' => 'form-control', 'id' => 'visit_date')) }}
                     <div class="input-group-addon">
@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="form-group col-lg-6">
-                <label for="client[agency_id]">Agência*:</label>
+                <label for="client[agency_id]">Agência <b>*</b>:</label>
                 <select name="client[agency_id]" class="form-control js-select">
                     <option value="0" disabled selected>Seleccione uma das opções</option>
                     @foreach(App\Agency::all() as $agency)
@@ -36,7 +36,7 @@
         <div class="row">
             <div class="form-group col-lg-12 1ndHolder_form">
                 <div class="form-group col-lg-12 1ndHolder_form_name">
-                    <label for="client[1st_holder_name]">Nome:</label>
+                    <label for="client[1st_holder_name]">Nome <b>*</b>:</label>
                     {{ Form::text('client[first_holder_name]', isset($client) ? $client->first_holder_holder_name : null, array('class' => 'form-control')) }}
                 </div>
                 <div class="form-group col-lg-10 1ndHolder_form_date_birth">
@@ -49,11 +49,11 @@
                     </div>
                 </div>
                 <div class="form-group col-lg-2 1ndHolder_form_age">
-                    <label for="client[1st_holder_age]">Idade</label>
-                    {{ Form::text('client[first_holder_age]', isset($client) ? $client->first_holder_age : null, array('class' => 'form-control', 'readonly', 'id' => 'first_holder_age')) }}
+                    <label for="client[1st_holder_age]">Idade <b>*</b>:</label>
+                    {{ Form::text('client[first_holder_age]', isset($client) ? $client->first_holder_age : null, array('class' => 'form-control', 'id' => 'first_holder_age')) }}
                 </div>
                 <div class="form-group col-lg-8 1ndHolder_form_job">
-                    <label for="client[first_holder_job_id]">Profissão:</label>
+                    <label for="client[first_holder_job_id]">Profissão <b>*</b>:</label>
                     <select name="client[first_holder_job_id]" class="form-control js-select" style="width: 100%">
                         <option value="0" disabled selected>Seleccione uma das opções</option>
                         @foreach(App\Job::all() as $job)
@@ -112,7 +112,7 @@
             </div>
 
             <div class="form-group col-lg-3">
-                <label for="client[mobile_phone_number]">Nº de Telemóvel:</label>
+                <label for="client[mobile_phone_number]">Nº de Telemóvel <b>*</b>:</label>
                 {{ Form::text('client[mobile_phone_number]', isset($client) ? $client->mobile_phone_number : null, array('class' => 'form-control ')) }}
             </div>
             <div class="form-group col-lg-4">
@@ -134,7 +134,7 @@
                 {{ Form::text('client[city]', isset($client) ? $client->city : null, array('class' => 'form-control')) }}
             </div>
             <div class="form-group col-lg-3">
-                <label for="client[marital_status]">Estado Civil:</label>
+                <label for="client[marital_status]">Estado Civil <b>*</b>:</label>
                 <select name="client[marital_status_id]" class="form-control" id="marital_status" style="width: 100%">
                     <option value="0" disabled selected>Seleccione uma das opções</option>
                     @foreach(App\MaritalStatus::all() as $marital_status)
@@ -146,7 +146,7 @@
             <div class="form-group col-lg-4">
                 <div class="row">
                     <div class="form-group col-lg-4">
-                        <label for="client[voucher_type]">Voucher:</label>
+                        <label for="client[voucher_type]">Voucher <b>*</b>:</label>
                         <select name="client[voucher_type]" class="form-control" id="voucher_type" style="width: 100%;">
                             <option value="DC">DC</option>
                             <option value="H">H</option>
@@ -161,13 +161,13 @@
         </div>
         <div class="row hidden" id="spouse_name">
             <div class="form-group col-lg-6">
-                <label for="client[spouse_name]">Nome do Conjuge:</label>
+                <label for="client[spouse_name]">Nome do Conjuge <b>*</b>:</label>
                 {{ Form::text('client[spouse_name]', isset($client) ? $client->spouse_name : null, array('class' => 'form-control')) }}
             </div>
         </div>
         <div class="row">
             <div class='form-group col-lg-6'>
-                <label for="client[entry_hour]">Hora de Entrada:</label>
+                <label for="client[entry_hour]">Hora de Entrada <b>*</b>:</label>
                 <div class='input-group date datetimepicker3'>
                     {{ Form::text('client[entry_hour]', isset($client) ? $client->entry_hour : null, array('class' => 'form-control')) }}
                     <div class="input-group-addon">
@@ -176,7 +176,7 @@
                 </div>
             </div>
             <div class='form-group col-lg-6'>
-                <label for="client[leave_hour]">Hora de Saída:</label>
+                <label for="client[leave_hour]">Hora de Saída <b>*</b>:</label>
                 <div class='input-group date datetimepicker3'>
                     {{ Form::text('client[leave_hour]', isset($client) ? $client->leave_hour : null, array('class' => 'form-control')) }}
                     <div class="input-group-addon">
@@ -187,7 +187,7 @@
         </div>
         <div class="row">
             <div class="form-group col-lg-4">
-                <label for="client[operator_id]">Cód. Operador:</label>
+                <label for="client[operator_id]">Cód. Operador <b>*</b>:</label>
                 <select name="client[operator_id]" class="form-control" id="operator_code" style="width: 100%">
                     <option value="0" disabled selected>Seleccione uma das opções</option>
                     @foreach(App\Operator::all() as $operator)
@@ -196,13 +196,13 @@
                 </select>
             </div>
             <div class="form-group col-lg-2">
-                <label for="client[supervisor_id]">Supervisor:</label>
+                <label for="client[supervisor_id]">Supervisor <b>*</b>:</label>
                 <select name="client[supervisor_id]" class="form-control" id="supervisor_code" style="width: 100%">
                     <option value="0" disabled selected>Supervisor</option>
                 </select>
             </div>
             <div class="form-group col-lg-4">
-                <label for="client[seller_id]">Vendedor:</label>
+                <label for="client[seller_id]">Vendedor <b>*</b>:</label>
                 <select name="client[seller_id]" class="form-control" id="seller_id" style="width: 100%">
                     <option value="0" disabled selected>Seleccione uma das opções</option>
                     @foreach(App\Seller::all() as $seller)
@@ -211,7 +211,7 @@
                 </select>
             </div>
             <div class="form-group col-lg-2">
-                <label for="client[manager_id]">Gerente:</label>
+                <label for="client[manager_id]">Gerente <b>*</b>:</label>
                 <select name="client[manager_id]" class="form-control" id="manager_id" style="width: 100%">
                     <option value="0" disabled selected>Seleccione uma das opções</option>
                     @foreach(App\Manager::all() as $manager)
@@ -238,10 +238,26 @@
         <div class="row">
             <div class="form-group col-lg-6">
                 <label for="client[close]">Fecho:</label>
-                <select name="client[close]" class="form-control" id="close" style="width: 100%">
-                    <option value="1">Sim</option>
-                    <option value="0">Não</option>
-                </select>
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <select name="client[close]" class="form-control" id="close" style="width: 100%">
+                            <option value="1">Sim</option>
+                            <option value="0">Não</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-6 hidden" id="justify_bar">
+                        <select name="client[n_close_justification_id]" class="form-control" id="n_close_justification" style="width: 100%">
+                            <option value="0" disabled selected>Seleccione uma das opções</option>
+                            @foreach(App\Justification::all() as $justification)
+                                <option value="{{$justification->id}}">{{$justification->description}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-lg-6">
+                <label>(<b>*</b>) Campos obrigatórios
+                </label>
             </div>
         </div>
     </div>
