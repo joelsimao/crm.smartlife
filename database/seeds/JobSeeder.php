@@ -11,7 +11,7 @@ class JobSeeder extends Seeder
      */
     public function run()
     {
-        $jobs=csvToArray('storage/csv/jobs.csv');
+        $jobs=csvToArray('csv/jobs.csv');
         foreach ($jobs as $job){
             Job::create($job);
         }
