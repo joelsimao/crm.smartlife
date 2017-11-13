@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
              RolePermissionSeeder::class,
              JobSeeder::class,
              AgencySeeder::class,
+             SupervisorSeeder::class,
+             OperatorSeeder::class,
              //UsersTableSeeder::class
          ]);
     }
