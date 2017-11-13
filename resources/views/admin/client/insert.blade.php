@@ -32,16 +32,28 @@
             }
         });
 
-        $('#date_of_birth').on('change', function () {
+        $('#first_holder_date_of_birth').on('change', function () {
             var date_of_birth = $(this).val();
                 $.ajax({
                     url: "/age",
                     data: { date_of_birth: date_of_birth} ,
                     success: function (response) {
-                        $('#age').val(response.age);
+                        $('#first_holder_age').val(response.age);
                     },
                 });
         });
+
+        $('#second_holder_date_of_birth').on('change', function () {
+            var date_of_birth = $(this).val();
+            $.ajax({
+                url: "/age",
+                data: { date_of_birth: date_of_birth},
+                success: function (response) {
+                    $('#second_holder_age').val(response.age);
+                },
+            });
+        });
+
 
         $('#operator_code').on('change', function () {
             var operator_id = $(this).val();
@@ -51,7 +63,7 @@
                 success: function (response) {
                     console.log(response);
                     $('#supervisor_code').append($('<option>', {
-                        value: response.code,
+                        value: response.id,
                         text: response.code + " - " + response.name,
                         selected: true,
                     }));

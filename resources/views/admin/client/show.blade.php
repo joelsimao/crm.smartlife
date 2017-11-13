@@ -31,7 +31,7 @@
                             <tbody>
                                 @foreach($clients as $client)
                                 <tr>
-                                    <td>{{$client->name}}</td>
+                                    <td>{{$client->first_holder_name}}</td>
                                     <td>{{$client->address}}</td>
                                     <td>{{$client->zipcode}}</td>
                                     <td>{{$client->city}}</td>

@@ -37,7 +37,23 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        Client::create($request->client);
+        $client = $request->client;
+        $voucher = $client["voucher_type"].$client["voucher_code"];
+        if($client["to_id"] == 1){
+            $to = "Sim";
+        } else{
+            $to = "Não";
+        }
+        if($client["close"] == 1){
+            $close = "Sim";
+        } else {
+            $close = "Não";
+        }
+        $client=array_except($client, array('voucher_type', 'voucher_code', 'to_id', 'close'));
+        $client=array_add($client, 'voucher', $voucher);
+        $client=array_add($client, 'to', $to);
+        $client=array_add($client, 'close', $close);
+        Client::create($client);
         flash('Cliente Inserido Com Sucesso!!!')->important()->success();
         return redirect()->back();
     }

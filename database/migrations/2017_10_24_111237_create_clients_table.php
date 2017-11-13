@@ -15,21 +15,49 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->date('visit_date');
+            $table->unsignedInteger('agency_id');
+            $table->foreign('agency_id')->references('id')->on('agencies')->onDelete('cascade');
+
+
+            $table->string('first_holder_name');
+            $table->date('first_holder_date_of_birth');
+            $table->integer('first_holder_age')->nullable();
+            $table->unsignedInteger('first_holder_job_id');
+            $table->foreign('first_holder_job_id')->references('id')->on('jobs')->onDelete('cascade');
+
+            $table->string('second_holder_name')->nullable();
+            $table->date('second_holder_date_of_birth')->nullable();
+            $table->integer('second_holder_age')->nullable();
+            $table->unsignedInteger('second_holder_job_id')->nullable();
+            $table->foreign('second_holder_job_id')->references('id')->on('jobs')->onDelete('cascade');
+
             $table->integer('nif');
+            $table->integer('phone_number')->unique();
+            $table->integer('mobile_phone_number')->unique();
+            $table->string('address');
+            $table->string('zipcode');
+            $table->string('city');
+            $table->string('email')->unique();
             $table->unsignedInteger('marital_status_id');
             $table->foreign('marital_status_id')->references('id')->on('marital_statuses')->onDelete('cascade');
             $table->string('spouse_name')->nullable();
-            $table->date('date_of_birth');
-            $table->integer('age')->nullable();
-            $table->unsignedInteger('job_id');
-            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
-            $table->string('address')->nullable();
-            $table->string('zipcode');
-            $table->string('city');
-            $table->integer('phone_number')->unique();
-            $table->integer('mobile_phone_number')->unique();
+
+            $table->string('voucher');
+            $table->string('entry_hour');
+            $table->string('leave_hour');
+            $table->unsignedInteger('operator_id');
+            $table->foreign('operator_id')->references('id')->on('operators')->onDelete('cascade');
+            $table->unsignedInteger('supervisor_id');
+            $table->foreign('supervisor_id')->references('id')->on('supervisors')->onDelete('cascade');
+            $table->unsignedInteger('seller_id')->nullable();
+            $table->foreign('seller_id')->references('id')->on('sellers')->onDelete('cascade');
+            $table->unsignedInteger('manager_id')->nullable();
+            $table->foreign('manager_id')->references('id')->on('managers')->onDelete('cascade');
+            $table->string('to')->nullable();
+            $table->text('obs')->nullable();
+            $table->string('close')->nullable();
+
             $table->timestamps();
         });
     }
