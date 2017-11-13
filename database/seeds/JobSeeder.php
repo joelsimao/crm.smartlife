@@ -11,7 +11,7 @@ class JobSeeder extends Seeder
      */
     public function run()
     {
-        if(App::environment('production')){
+        if(App::environment(['production', 'development'])){
             $file = 'C:\inetpub\vhosts\smartlife.pt\crm.smartlife.pt\storage\app\csv\jobs.csv';
         } else {
             $file = storage_path('app/csv/jobs.csv');

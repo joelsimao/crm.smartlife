@@ -12,7 +12,7 @@ class AgencySeeder extends Seeder
      */
     public function run()
     {
-        if(App::environment('production')){
+        if(App::environment(['production', 'development'])){
             $file = 'C:\inetpub\vhosts\smartlife.pt\crm.smartlife.pt\storage\app\csv\agencies.csv';
         } else {
             $file = storage_path('app/csv/agencies.csv');
