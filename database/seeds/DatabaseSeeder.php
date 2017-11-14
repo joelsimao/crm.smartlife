@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
              AgencySeeder::class,
              SupervisorSeeder::class,
              OperatorSeeder::class,
+             ManagerSeeder::class,
+             SellerSeeder::class,
              JustificationSeeder::class,
              //UsersTableSeeder::class
          ]);

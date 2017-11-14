@@ -1,2 +1,3 @@
-id,name,email,password,remember_token,created_at,updated_at
-2,João Azevedo,joaopedro7_11@hotmail.com,$2y$10$dOR97XW4cTlQwpXmT2WXiui4A8maxbUhCacVi4slIIoqXbFI/Agwy,NULL,2017-11-13 11:03:41,2017-11-13 11:03:41
+"id","name","email","password","remember_token","created_at","updated_at"
+"2","João Azevedo","joaopedro7_11@hotmail.com","$2y$10$dOR97XW4cTlQwpXmT2WXiui4A8maxbUhCacVi4slIIoqXbFI/Agwy","NULL","2017-11-13 11:03:41","2017-11-13 11:03:41"
+"3","Patricia Matukait","patricia.matukait@gmail.com","$2y$10$LyjwRhnZVHKBQGvxfY6E0eP8yqEPK8a/Er8sxh6gp.9W3KULYStPS","vYHQqqpkqnJzQ5HK9sXu1YOBHQaL3S3fIxXkT0coY1tdGj7nG5U0yK2MQCCO","2017-11-14 11:18:13","2017-11-14 11:18:13"
