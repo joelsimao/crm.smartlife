@@ -17,11 +17,23 @@
       fixed layout. -->
 
 <script type="text/javascript">
-    $("#search").on('click', function () {
-        console.log('Hello');
-        /*console.log($('#search').val());
-*/
+    $("#search_btn").on('click', function () {
+        var q = $('#search').val();
+        var ds = $('#ds').val();
+        var de = $('#de').val();
+        var newURL= window.location.href.replace(window.location.search,'');
+        if(q!= '' && ds=='' && de ==''){
+            window.location = newURL + "?q=" + q;
+        } else {
+            window.location = newURL + "?q=" + q + "&ds=" + ds + "&de=" + de;
+        }
     });
+
+    $('#search').keydown(function (e){
+        if(e.keyCode == 13){
+            $("#search_btn").click();
+        }
+    })
 </script>
 
 {{--Script of the Datepickers--}}
@@ -29,6 +41,7 @@
     $('.datepicker').datepicker({
         format: 'yyyy-mm-dd',
         language: 'pt',
+        autoclose:true,
     });
 
     $(function () {
