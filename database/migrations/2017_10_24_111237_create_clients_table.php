@@ -58,7 +58,7 @@ class CreateClientsTable extends Migration
             $table->string('to')->nullable();
             $table->text('obs')->nullable();
             $table->string('close')->nullable();
-            $table->unsignedInteger('n_close_justification_id');
+            $table->unsignedInteger('n_close_justification_id')->nullable();
             $table->foreign('n_close_justification_id')->references('id')->on('justifications')->onDelete('cascade');
 
             $table->timestamps();
