@@ -25,7 +25,7 @@
     <script>
         $('#marital_status').on('change', function () {
             var marital_status_id = $('#marital_status :selected').val();
-            if( marital_status_id != 0 && marital_status_id != 1 && marital_status_id != 4){
+            if( marital_status_id == 2 || marital_status_id == 3){
                 $('#spouse_name').removeClass('hidden');
             } else {
                 $('#spouse_name').addClass('hidden');
