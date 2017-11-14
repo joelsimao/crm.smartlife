@@ -46,6 +46,7 @@ class CreateClientsTable extends Migration
             $table->string('voucher');
             $table->string('entry_hour');
             $table->string('leave_hour');
+            $table->string('h_tour');
             $table->unsignedInteger('operator_id');
             $table->foreign('operator_id')->references('id')->on('operators')->onDelete('cascade');
             $table->unsignedInteger('supervisor_id');
