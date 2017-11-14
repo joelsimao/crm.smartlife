@@ -60,3 +60,4 @@ Route::resource('seller', 'SellerController', ['only' => [
 
 Route::get('/age', 'ScriptController@age_calculator');
 Route::get('/get_supervisor', 'ScriptController@get_supervisor');
+Route::get('/tour_calculate', 'ScriptController@tour_calculate');

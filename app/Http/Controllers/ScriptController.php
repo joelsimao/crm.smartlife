@@ -20,4 +20,12 @@ class ScriptController extends Controller
         $supervisor = Supervisor::findOrFail($operator->supervisor_id);
         return response()->json($supervisor->toArray());
     }
+
+    public function tour_calculate(Request $request)
+    {
+        $entry_hour = new Carbon($request->entry_hour);
+        $leave_hour = new Carbon($request->leave_hour);
+        $tour = $leave_hour->diff($entry_hour)->format('%Hh%Im');
+        return response()->json(compact('tour'));
+    }
 }

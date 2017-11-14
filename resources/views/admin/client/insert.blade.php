@@ -52,6 +52,7 @@
                 });
         });
 
+
         $('#second_holder_date_of_birth').on('change', function () {
             var date_of_birth = $(this).val();
             $.ajax({
@@ -63,6 +64,21 @@
             });
         });
 
+        $('#first_holder_age').on('change', function () {
+            var age = $(this).val();
+            var date = new Date();
+            var year = date.getFullYear();
+            var year_of_birth = year - age;
+            $('#first_holder_date_of_birth').val(year_of_birth + "-01-01");
+        });
+
+        $('#second_holder_age').on('change', function () {
+            var age = $(this).val();
+            var date = new Date();
+            var year = date.getFullYear();
+            var year_of_birth = year - age;
+            $('#second_holder_date_of_birth').val(year_of_birth + "-01-01");
+        });
 
         $('#operator_code').on('change', function () {
             var operator_id = $(this).val();
@@ -94,6 +110,18 @@
                 $('.2ndHolder_form').addClass('hidden');
                 $('.2ndHolder_title').addClass('hidden');
             }
+        });
+
+        $('#leave_hour').on('dp.change', function () {
+            var leave_hour = $('#leave_hour_input').val();
+            var entry_hour = $('#entry_hour').val();
+            $.ajax({
+                url: "/tour_calculate",
+                data: { entry_hour: entry_hour, leave_hour: leave_hour},
+                success: function (response) {
+                    $('#h_tour').val(response.tour);
+                },
+            });
         });
     </script>
 @endsection

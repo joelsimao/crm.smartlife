@@ -79,7 +79,7 @@
                 </div>
                 <div class="form-group col-lg-2">
                     <label for="client[second_holder_age]">Idade</label>
-                    {{ Form::text('client[second_holder_age]', isset($client) ? $client->second_holder_age : null, array('class' => 'form-control', 'readonly', 'id' => 'second_holder_age')) }}
+                    {{ Form::text('client[second_holder_age]', isset($client) ? $client->second_holder_age : null, array('class' => 'form-control', 'id' => 'second_holder_age')) }}
                 </div>
                 <div class="form-group col-lg-8">
                     <label for="client[second_holder_job_id]">Profissão:</label>
@@ -169,7 +169,7 @@
             <div class='form-group col-lg-4'>
                 <label for="client[entry_hour]">Hora de Entrada <b>*</b>:</label>
                 <div class='input-group date datetimepicker3'>
-                    {{ Form::text('client[entry_hour]', isset($client) ? $client->entry_hour : null, array('class' => 'form-control')) }}
+                    {{ Form::text('client[entry_hour]', isset($client) ? $client->entry_hour : null, array('class' => 'form-control', 'id' => 'entry_hour')) }}
                     <div class="input-group-addon">
                         <span class="glyphicon glyphicon-time"></span>
                     </div>
@@ -177,8 +177,8 @@
             </div>
             <div class='form-group col-lg-4'>
                 <label for="client[leave_hour]">Hora de Saída <b>*</b>:</label>
-                <div class='input-group date datetimepicker3'>
-                    {{ Form::text('client[leave_hour]', isset($client) ? $client->leave_hour : null, array('class' => 'form-control')) }}
+                <div class='input-group date datetimepicker3' id="leave_hour">
+                    {{ Form::text('client[leave_hour]', isset($client) ? $client->leave_hour : null, array('class' => 'form-control', 'id' => 'leave_hour_input')) }}
                     <div class="input-group-addon">
                         <span class="glyphicon glyphicon-time"></span>
                     </div>
@@ -186,7 +186,7 @@
             </div>
             <div class='form-group col-lg-4'>
                 <label for="client[h_tour]">Tour <b>*</b>:</label>
-                {{ Form::text('client[h_tour]', isset($client) ? $client->city : null, array('class' => 'form-control')) }}
+                {{ Form::text('client[h_tour]', isset($client) ? $client->city : null, array('class' => 'form-control', 'id' => 'h_tour')) }}
             </div>
         </div>
         <div class="row">
