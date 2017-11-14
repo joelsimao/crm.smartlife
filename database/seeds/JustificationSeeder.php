@@ -27,6 +27,9 @@ class JustificationSeeder extends Seeder
             ],
             [   'id' => '5',
                 'description' => 'S/Docs'
+            ],
+            [   'id' => '6',
+                'description' => 'Sentou'
             ],);
         foreach ($justifications as $justification){
             Justification::create($justification);
