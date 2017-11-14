@@ -27,10 +27,10 @@
         <hr>
         <div class="row">
             <div class="col-lg-6">
-                <label><b>1º Titular</b></label>
+                <h4><b>1º Titular</b></h4>
             </div>
             <div class="col-lg-6 2ndHolder_title hidden">
-                <label><b>2º Titular</b></label>
+                <h4><b>2º Titular</b></h4>
             </div>
         </div>
         <div class="row">
@@ -166,7 +166,7 @@
             </div>
         </div>
         <div class="row">
-            <div class='form-group col-lg-6'>
+            <div class='form-group col-lg-4'>
                 <label for="client[entry_hour]">Hora de Entrada <b>*</b>:</label>
                 <div class='input-group date datetimepicker3'>
                     {{ Form::text('client[entry_hour]', isset($client) ? $client->entry_hour : null, array('class' => 'form-control')) }}
@@ -175,7 +175,7 @@
                     </div>
                 </div>
             </div>
-            <div class='form-group col-lg-6'>
+            <div class='form-group col-lg-4'>
                 <label for="client[leave_hour]">Hora de Saída <b>*</b>:</label>
                 <div class='input-group date datetimepicker3'>
                     {{ Form::text('client[leave_hour]', isset($client) ? $client->leave_hour : null, array('class' => 'form-control')) }}
@@ -183,6 +183,10 @@
                         <span class="glyphicon glyphicon-time"></span>
                     </div>
                 </div>
+            </div>
+            <div class='form-group col-lg-4'>
+                <label for="client[h_tour]">Tour <b>*</b>:</label>
+                {{ Form::text('client[h_tour]', isset($client) ? $client->city : null, array('class' => 'form-control')) }}
             </div>
         </div>
         <div class="row">

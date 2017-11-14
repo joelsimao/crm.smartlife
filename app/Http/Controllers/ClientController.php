@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Laracasts\Flash\Flash;
 
 class ClientController extends Controller
@@ -15,6 +16,9 @@ class ClientController extends Controller
      */
     public function index()
     {
+        $q=Input::get('q');
+        $ds=Input::get('ds');
+        $de=Input::get('de');
         $clients = Client::paginate(15);
         return view('admin.client.show', compact('clients'));
     }
