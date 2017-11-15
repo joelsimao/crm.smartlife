@@ -3,10 +3,20 @@
         <h3 class="box-title">@if( isset($isEdit)) Editar Cliente @else Inserir Cliente @endif</h3>
     </div>
     <div class="box-body">
+        @if(isset($errors) && $errors != null)
+            @foreach ($errors->all() as $error)
+                <div class="alert alert-danger">
+                    <strong>Erro!</strong> {{$error}}
+                </div>
+            @endforeach
+        @endif
         <div class="row">
             <div class="form-group col-lg-6">
                 <label for="client[visit_date]">Data de Visita <b>*</b>:</label>
                 <div class="input-group date datepicker" data-provide="datepicker">
+{{--                    @if(isset($errors) && $errors->has('client.visit_date') && $errors != null )
+                        {{$errors["client.visit_date"]}}
+                    @endif--}}
                     {{ Form::text('client[visit_date]', isset($client) ? $client->visit_date : null, array('class' => 'form-control', 'id' => 'visit_date')) }}
                     <div class="input-group-addon">
                         <span class="glyphicon glyphicon-th"></span>
@@ -241,7 +251,7 @@
         </div>
         <div class="row">
             <div class="form-group col-lg-6">
-                <label for="client[close]">Fecho:</label>
+                <label for="client[close]">Fecho <b>*</b>:</label>
                 <div class="row">
                     <div class="form-group col-lg-4">
                         <select name="client[close]" class="form-control" id="close" style="width: 100%">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Client;
+use App\Http\Requests\ClientRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Laracasts\Flash\Flash;
@@ -36,10 +37,10 @@ class ClientController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param ClientRequest|Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClientRequest $request)
     {
         $client = $request->client;
         $voucher = $client["voucher_type"].$client["voucher_code"];
@@ -88,11 +89,11 @@ class ClientController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param ClientRequest|Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ClientRequest $request, $id)
     {
         $client = Client::FindOrFail($id);
         $client->update($request->client);

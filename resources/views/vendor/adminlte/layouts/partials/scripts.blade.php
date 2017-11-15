@@ -50,7 +50,7 @@
         });
     });
 
-    $('div.alert').delay(3000).fadeOut(350);
+    $('div.alert-success').delay(3000).fadeOut(350);
 </script>
 
 {{--Script of select2--}}
