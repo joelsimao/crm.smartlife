@@ -74,7 +74,7 @@ class ClientRequest extends FormRequest
             'client.operator_id.required'  => 'Inserir Operador',
             'client.supervisor_id.required' => 'Inserir Supervisor',
             'client.manager_id.required'  => 'Inserir Gerente',
-            'client.manager_id.required'  => 'Inserir Vendedor',
+            'client.seller_id.required'  => 'Inserir Vendedor',
             'client.close.required' =>'Seleccionar Fecho Sim/Não',
             'client.n_close_justification_id.required_if'  => 'Inserir justificação de não fecho',
         ];
