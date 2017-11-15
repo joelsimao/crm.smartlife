@@ -49,6 +49,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {{$clients->links()}}
                     </div>
                     <!-- /.box-body -->
                 </div>
