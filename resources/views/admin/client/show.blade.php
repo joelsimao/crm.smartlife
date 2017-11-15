@@ -49,7 +49,9 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{$clients->links()}}
+                        <div class="row" style="align-self: center;">
+                            {{$clients->links()}}
+                        </div>
                     </div>
                     <!-- /.box-body -->
                 </div>
