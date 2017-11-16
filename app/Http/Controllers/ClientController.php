@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use App\Http\Requests\ClientRequest;
+use App\Operator;
+use App\Supervisor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Laracasts\Flash\Flash;
@@ -17,11 +19,18 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $q=Input::get('q');
+        $agency_id=Input::get('agency_id');
+        $seller_id=Input::get('seller_id');
+        $manager_id=Input::get('manager_id');
+        $supervisor_code=Input::get('supervisor_code');
+        $operator_code=Input::get('operator_code');
         $ds=Input::get('ds');
         $de=Input::get('de');
-        $clients = Client::paginate(15);
-        return view('admin.client.show', compact('clients'));
+
+
+        $clients = $this->get_clients($seller_id, $seller_id, $manager_id, $supervisor_code, $operator_code, $ds, $de)->paginate(15);
+
+        return view('admin.client.show', compact('clients', 'agency_id','seller_id', 'manager_id', 'supervisor_code', 'operator_code', 'ds', 'de'));
     }
 
     /**
@@ -111,5 +120,71 @@ class ClientController extends Controller
         $client = Client::FindOrFail($id);
         $client->delete();
         return redirect()->back();
+    }
+
+    /**
+     * @param $agency_id
+     * @param $seller_id
+     * @param $manager_id
+     * @param $supervisor_code
+     * @param $operator_code
+     * @param $ds
+     * @param $de
+     * @param $appends
+     * @param bool $export
+     * @return
+     */
+    function get_clients($agency_id, $seller_id, $manager_id, $supervisor_code, $operator_code, $ds, $de, $export=false){
+        $clients=Client::orderBy('first_holder_name');
+        $appends = collect();
+        if($agency_id != null){
+            $clients = $clients->where('agency_id', $agency_id);
+            if(!$export)
+                $appends->push(["agency_id" => $agency_id]);
+        }
+        if($seller_id != null){
+            $clients = $clients->where('seller_id', $seller_id);
+            if(!$export){
+                $appends->push(["seller_id" => $seller_id]);
+                dd($appends);
+            }
+        }
+        if($manager_id != null){
+            $clients = $clients->where('manager_id', $manager_id);
+            if(!$export)
+                $appends->push(["manager_id" => $manager_id]);
+        }
+        if($supervisor_code != null){
+            $supervisor = Supervisor::where('code', $supervisor_code)->first();
+            $clients = $clients->where('supervisor_id', $supervisor->id);
+            if(!$export)
+                $appends->put(["supervisor_code" => $supervisor_code]);
+
+        }
+        if($supervisor_code != null){
+            $supervisor = Supervisor::where('code', $supervisor_code)->first();
+            $clients = $clients->where('supervisor_id', $supervisor->id);
+            if(!$export)
+                $appends->push(["supervisor_code" => $supervisor_code]);
+        }
+        if($operator_code != null){
+            $operator = Operator::where('code', $operator_code)->first();
+            $clients = $clients->where('operator_id', $operator->id);
+            if(!$export)
+                $appends->push(["operator_code" => $operator_code]);
+        }
+        if($ds != '' && $de !=''){
+            $clients = $clients->whereDate('visit_date','>=',$ds)->whereDate('visit_date', '<=', $de);
+            if(!$export){
+                $appends->push(["ds" => $ds]);
+                $appends->push(["de" => $de]);
+            }
+        }
+        if ($appends->isEmpty()){
+            return $clients;
+        } else{
+            return $clients->appends($appends->toArray());
+        }
+
     }
 }

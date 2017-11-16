@@ -18,22 +18,68 @@
 
 <script type="text/javascript">
     $("#search_btn").on('click', function () {
-        var q = $('#search').val();
+        var agency_id = $('#agency_id').val();
+        var seller_id = $('#seller_id').val();
+        var manager_id = $('#manager_id').val();
+        var supervisor_code = $('#supervisor_code').val();
+        var operator_code = $('#operator_code').val();
         var ds = $('#ds').val();
         var de = $('#de').val();
         var newURL= window.location.href.replace(window.location.search,'');
-        if(q!= '' && ds=='' && de ==''){
-            window.location = newURL + "?q=" + q;
-        } else {
-            window.location = newURL + "?q=" + q + "&ds=" + ds + "&de=" + de;
+        var search = window.location.search;
+
+        if(agency_id != null){
+            if(search == ''){
+                search = "?agency_id=" + agency_id;
+            } else if(search.indexOf("agency_id=") == -1){
+                search = search + "&agency_id=" + agency_id;
+            }
         }
+        
+        if(seller_id != null){
+            if(search == ''){
+                 search = "?seller_id=" + seller_id;
+            } else if(search.indexOf("seller_id=") == -1){
+                search = search + "&seller_id=" + seller_id;
+            }
+        }
+        if(manager_id != null){
+            if(search == ''){
+                search = "?manager_id=" + manager_id;
+            } else if(search.indexOf("manager_id=") == -1){
+                search = search +"&manager_id=" + manager_id;
+            }
+        }
+        if(supervisor_code != null){
+            if(search == ''){
+                search = "?supervisor_code=" + supervisor_code;
+            } else if(search.indexOf("supervisor_code=") == -1){
+                search = search + "&supervisor_code=" + supervisor_code;
+            }
+        }
+        if(operator_code != null){
+            if(search == ''){
+                search = "?operator_code=" + operator_code;
+            } else if(search.indexOf("operator_code=") == -1){
+                search = search + "&operator_code=" + operator_code;
+            }
+        }
+        if(ds != '' && de != ''){
+            if(search == ''){
+                search = "?ds=" + ds + "&de=" + de;
+            } else if(search.indexOf("ds=" + ds + "&de=" + de) == -1){
+                search = search + "&ds=" + ds + "&de=" + de;
+            }
+        }
+        window.location.href = newURL + search;
     });
 
     $('#search').keydown(function (e){
         if(e.keyCode == 13){
             $("#search_btn").click();
         }
-    })
+    });
+
 </script>
 
 {{--Script of the Datepickers--}}
