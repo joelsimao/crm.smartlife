@@ -35,7 +35,7 @@ class ClientRequest extends FormRequest
             'client.second_holder_age' => 'numeric|nullable',
             'client.second_holder_job_id' => 'nullable',
             'client.nif' => 'min:0|max:9|numeric|nullable',
-            'client.phone_number' => 'numeric|min:0|max:9|nullable',
+            'client.phone_number' => 'numeric|min:0|min:9|nullable',
             'client.mobile_phone_number' => 'required|numeric|min:9',
             'client.email' => 'email|nullable',
             'client.address' => 'alpha_dash|nullable',
