@@ -26,10 +26,8 @@ class ClientController extends Controller
         $operator_code=Input::get('operator_code');
         $ds=Input::get('ds');
         $de=Input::get('de');
-
-
-        $clients = $this->get_clients($seller_id, $seller_id, $manager_id, $supervisor_code, $operator_code, $ds, $de)->paginate(15);
-
+        $appends = collect();
+        $clients = $this->get_clients($seller_id, $seller_id, $manager_id, $supervisor_code, $operator_code, $ds, $de, $appends)->paginate(15)->appends($appends->toArray());
         return view('admin.client.show', compact('clients', 'agency_id','seller_id', 'manager_id', 'supervisor_code', 'operator_code', 'ds', 'de'));
     }
 
@@ -134,9 +132,8 @@ class ClientController extends Controller
      * @param bool $export
      * @return
      */
-    function get_clients($agency_id, $seller_id, $manager_id, $supervisor_code, $operator_code, $ds, $de, $export=false){
+    function get_clients($agency_id, $seller_id, $manager_id, $supervisor_code, $operator_code, $ds, $de, &$appends, $export=false){
         $clients=Client::orderBy('first_holder_name');
-        $appends = collect();
         if($agency_id != null){
             $clients = $clients->where('agency_id', $agency_id);
             if(!$export)
@@ -144,10 +141,8 @@ class ClientController extends Controller
         }
         if($seller_id != null){
             $clients = $clients->where('seller_id', $seller_id);
-            if(!$export){
+            if(!$export)
                 $appends->push(["seller_id" => $seller_id]);
-                dd($appends);
-            }
         }
         if($manager_id != null){
             $clients = $clients->where('manager_id', $manager_id);
@@ -158,7 +153,7 @@ class ClientController extends Controller
             $supervisor = Supervisor::where('code', $supervisor_code)->first();
             $clients = $clients->where('supervisor_id', $supervisor->id);
             if(!$export)
-                $appends->put(["supervisor_code" => $supervisor_code]);
+                $appends->push(["supervisor_code" => $supervisor_code]);
 
         }
         if($supervisor_code != null){
@@ -180,11 +175,6 @@ class ClientController extends Controller
                 $appends->push(["de" => $de]);
             }
         }
-        if ($appends->isEmpty()){
-            return $clients;
-        } else{
-            return $clients->appends($appends->toArray());
-        }
-
+        return $clients;
     }
 }
