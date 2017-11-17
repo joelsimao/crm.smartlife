@@ -23,6 +23,10 @@ class LoginController extends Controller
         attemptLogin as attemptLoginAtAuthenticatesUsers;
     }
 
+    public function index()
+    {
+        return redirect('/login');
+    }
     /**
      * Show the application's login form.
      *
@@ -38,6 +42,7 @@ class LoginController extends Controller
      *
      * @var string
      */
+
     protected $redirectTo = '/home';
 
     /**

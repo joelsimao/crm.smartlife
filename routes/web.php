@@ -11,17 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('adminlte::auth.login');
-});
+Route::get('/', 'Auth\LoginController@index' );
+
+Route::get('/login', 'Auth\LoginController@showLoginForm()' );
 
 Route::get('/register', function(){
     return view('adminlte::auth.register');
 });
 
-Route::get('/home', function(){
-    return view('adminlte::home');
-});
+Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {
