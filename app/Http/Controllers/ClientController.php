@@ -27,7 +27,8 @@ class ClientController extends Controller
         $ds=Input::get('ds');
         $de=Input::get('de');
         $appends = collect();
-        $clients = $this->get_clients($seller_id, $seller_id, $manager_id, $supervisor_code, $operator_code, $ds, $de, $appends)->paginate(15)->appends($appends->toArray());
+        $clients = $this->get_clients($agency_id, $seller_id, $manager_id, $supervisor_code, $operator_code, $ds, $de, $appends)->paginate(15);
+        $clients = $clients->appends($appends->toArray());
         return view('admin.client.show', compact('clients', 'agency_id','seller_id', 'manager_id', 'supervisor_code', 'operator_code', 'ds', 'de'));
     }
 
@@ -137,44 +138,65 @@ class ClientController extends Controller
         if($agency_id != null){
             $clients = $clients->where('agency_id', $agency_id);
             if(!$export)
-                $appends->push(["agency_id" => $agency_id]);
+                $appends->put('agency_id', $agency_id);
         }
         if($seller_id != null){
             $clients = $clients->where('seller_id', $seller_id);
             if(!$export)
-                $appends->push(["seller_id" => $seller_id]);
+                $appends->put('seller_id', $seller_id);
         }
         if($manager_id != null){
             $clients = $clients->where('manager_id', $manager_id);
             if(!$export)
-                $appends->push(["manager_id" => $manager_id]);
+                $appends->put('manager_id', $manager_id);
         }
         if($supervisor_code != null){
             $supervisor = Supervisor::where('code', $supervisor_code)->first();
             $clients = $clients->where('supervisor_id', $supervisor->id);
             if(!$export)
-                $appends->push(["supervisor_code" => $supervisor_code]);
-
-        }
-        if($supervisor_code != null){
-            $supervisor = Supervisor::where('code', $supervisor_code)->first();
-            $clients = $clients->where('supervisor_id', $supervisor->id);
-            if(!$export)
-                $appends->push(["supervisor_code" => $supervisor_code]);
+                $appends->put("supervisor_code", $supervisor_code);
         }
         if($operator_code != null){
             $operator = Operator::where('code', $operator_code)->first();
             $clients = $clients->where('operator_id', $operator->id);
             if(!$export)
-                $appends->push(["operator_code" => $operator_code]);
+                $appends->put("operator_code" , $operator_code);
         }
         if($ds != '' && $de !=''){
             $clients = $clients->whereDate('visit_date','>=',$ds)->whereDate('visit_date', '<=', $de);
             if(!$export){
-                $appends->push(["ds" => $ds]);
-                $appends->push(["de" => $de]);
+                $appends->put("ds", $ds);
+                $appends->put("de", $de);
             }
         }
         return $clients;
+    }
+
+    function options_append($agency_id, $seller_id, $manager_id, $supervisor_code, $operator_code, $ds, $de){
+        $appends = collect();
+        if($agency_id != null){
+            $appends->put("agency_id",$agency_id);
+        }
+        if($seller_id != null){
+            $appends->push(["seller_id" => $seller_id]);
+        }
+        if($manager_id != null){
+            $appends->push(["manager_id" => $manager_id]);
+        }
+        if($supervisor_code != null){
+            $appends->push(["supervisor_code" => $supervisor_code]);
+
+        }
+        if($supervisor_code != null){
+            $appends->push(["supervisor_code" => $supervisor_code]);
+        }
+        if($operator_code != null){
+            $appends->push(["operator_code" => $operator_code]);
+        }
+        if($ds != '' && $de !=''){
+            $appends->push(["ds" => $ds]);
+            $appends->push(["de" => $de]);
+        }
+        return $appends->toArray();
     }
 }

@@ -18,6 +18,7 @@
 
 <script type="text/javascript">
     $("#search_btn").on('click', function () {
+        var urlParams = new URLSearchParams(window.location.search);
         var agency_id = $('#agency_id').val();
         var seller_id = $('#seller_id').val();
         var manager_id = $('#manager_id').val();
@@ -33,6 +34,9 @@
                 search = "?agency_id=" + agency_id;
             } else if(search.indexOf("agency_id=") == -1){
                 search = search + "&agency_id=" + agency_id;
+            } else if(search != '' && search.indexOf("agency_id=" + agency_id) == -1){
+                var query_agency = urlParams.get('agency_id');
+                search = search.replace('agency_id=' + query_agency, 'agency_id=' + agency_id);
             }
         }
         
@@ -41,6 +45,9 @@
                  search = "?seller_id=" + seller_id;
             } else if(search.indexOf("seller_id=") == -1){
                 search = search + "&seller_id=" + seller_id;
+            } else if(search != '' && search.indexOf("seller_id=" + seller_id) == -1){
+                var query_seller = urlParams.get('seller_id');
+                search = search.replace('seller_id=' + query_seller, 'seller_id=' + seller_id);
             }
         }
         if(manager_id != null){
@@ -48,6 +55,9 @@
                 search = "?manager_id=" + manager_id;
             } else if(search.indexOf("manager_id=") == -1){
                 search = search +"&manager_id=" + manager_id;
+            } else if(search != '' && search.indexOf("manager_id=" + manager_id) == -1){
+                var query_manager = urlParams.get('manager_id');
+                search = search.replace('manager_id=' + query_manager, 'manager_id=' + manager_id);
             }
         }
         if(supervisor_code != null){
@@ -55,6 +65,9 @@
                 search = "?supervisor_code=" + supervisor_code;
             } else if(search.indexOf("supervisor_code=") == -1){
                 search = search + "&supervisor_code=" + supervisor_code;
+            } else if(search != '' && search.indexOf("supervisor_code=" + supervisor_code) == -1){
+                var query_supervisor = urlParams.get('supervisor_code');
+                search = search.replace('supervisor_code=' + query_supervisor, 'supervisor_code=' + supervisor_code);
             }
         }
         if(operator_code != null){
@@ -62,6 +75,9 @@
                 search = "?operator_code=" + operator_code;
             } else if(search.indexOf("operator_code=") == -1){
                 search = search + "&operator_code=" + operator_code;
+            } else if(search != '' && search.indexOf("operator_code=" + operator_code) == -1){
+                var query_operator = urlParams.get('operator_code');
+                search = search.replace('operator_code=' + query_operator, 'operator_code=' + operator_code);
             }
         }
         if(ds != '' && de != ''){
@@ -69,15 +85,30 @@
                 search = "?ds=" + ds + "&de=" + de;
             } else if(search.indexOf("ds=" + ds + "&de=" + de) == -1){
                 search = search + "&ds=" + ds + "&de=" + de;
+            } else if(search != '' && search.indexOf("ds=" + ds) == -1  && search.indexOf("de=" + de) == -1){
+                var query_ds = urlParams.get('ds');
+                var query_de = urlParams.get('de');
+                search = search.replace('ds=' + query_ds, 'ds=' + ds);
+                search = search.replace('de=' + query_de, 'de=' + de);
             }
         }
         window.location.href = newURL + search;
     });
 
-    $('#search').keydown(function (e){
+/*    $('#search').keydown(function (e){
         if(e.keyCode == 13){
             $("#search_btn").click();
         }
+    });*/
+
+    $("#btn_search_enable").on('click', function () {
+        $('#enable_search').addClass('hidden');
+        $('.search_section').removeClass('hidden');
+    });
+
+    $("#clear_btn").on('click', function () {
+        var newURL= window.location.href.replace(window.location.search,'');
+        window.location.href = newURL;
     });
 
 </script>

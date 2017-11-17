@@ -49,7 +49,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <div class="row" style="align-self: center;">
+                        <div class="row" align="center">
                             {{$clients->links()}}
                         </div>
                     </div>
