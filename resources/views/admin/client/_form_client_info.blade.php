@@ -47,12 +47,12 @@
             <div class="form-group col-lg-12 1ndHolder_form">
                 <div class="form-group col-lg-12 1ndHolder_form_name">
                     <label for="client[1st_holder_name]">Nome <b>*</b>:</label>
-                    {{ Form::text('client[first_holder_name]', isset($client) ? $client->first_holder_holder_name : null, array('class' => 'form-control')) }}
+                    {{ Form::text('client[first_holder_name]', isset($client) ? $client->first_holder_name : null, array('class' => 'form-control')) }}
                 </div>
                 <div class="form-group col-lg-10 1ndHolder_form_date_birth">
                     <label for="client[first_holder_date_of_birth]">Data de Nascimento:</label>
                     <div class="input-group date datepicker" data-provide="datepicker">
-                        {{ Form::text('client[first_holder_date_of_birth]', isset($client) ? $client->first_holder_holder_date_of_birth : null, array('class' => 'form-control', 'id' => 'first_holder_date_of_birth')) }}
+                        {{ Form::text('client[first_holder_date_of_birth]', isset($client) ? $client->first_holder_date_of_birth : null, array('class' => 'form-control', 'id' => 'first_holder_date_of_birth')) }}
                         <div class="input-group-addon">
                             <span class="glyphicon glyphicon-th"></span>
                         </div>
@@ -164,7 +164,7 @@
                     </div>
                     <div class="form-group col-lg-8">
                         <label for="client[voucher_code]"> </label>
-                        {{ Form::text('client[voucher_code]', null, array('class' => 'form-control', 'style' => 'margin-top: 5px; padding-left:0px; padding-right:0px;')) }}
+                        {{ Form::text('client[voucher_code]', null, array('class' => 'form-control', 'style' => 'margin-top: 11px; margin-left: -25px;')) }}
                     </div>
                 </div>
             </div>
@@ -196,7 +196,7 @@
             </div>
             <div class='form-group col-lg-4'>
                 <label for="client[h_tour]">Tour <b>*</b>:</label>
-                {{ Form::text('client[h_tour]', isset($client) ? $client->city : null, array('class' => 'form-control', 'id' => 'h_tour')) }}
+                {{ Form::text('client[h_tour]', isset($client) ? $client->h_tour : null, array('class' => 'form-control', 'id' => 'h_tour')) }}
             </div>
         </div>
         <div class="row">
@@ -205,14 +205,17 @@
                 <select name="client[operator_id]" class="form-control" id="operator_code" style="width: 100%">
                     <option value="0" disabled selected>Seleccione uma das opções</option>
                     @foreach(App\Operator::all() as $operator)
-                        <option value="{{$operator->id}}">{{$operator->code ." - ".$operator->name}}</option>
+                        <option value="{{$operator->id}}" @if($client->operator_id == $operator->id) selected @endif>{{$operator->code ." - ".$operator->name}}</option>
                     @endforeach
                 </select>
             </div>
             <div class="form-group col-lg-2">
                 <label for="client[supervisor_id]">Supervisor <b>*</b>:</label>
                 <select name="client[supervisor_id]" class="form-control" id="supervisor_code" style="width: 100%">
-                    <option value="0" disabled selected>Supervisor</option>
+                    <option value="0" disabled selected>Seleccione uma das opções</option>
+                    @foreach(App\Supervisor::all() as $supervisor)
+                        <option value="{{$supervisor->id}}" @if($client->supervisor_id == $supervisor->id) selected @endif>{{$supervisor->code ." - ".$supervisor->name}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group col-lg-4">
@@ -220,7 +223,7 @@
                 <select name="client[seller_id]" class="form-control" id="seller_id" style="width: 100%">
                     <option value="0" disabled selected>Seleccione uma das opções</option>
                     @foreach(App\Seller::all() as $seller)
-                        <option value="{{$seller->id}}">{{$seller->name}}</option>
+                        <option value="{{$seller->id}}" @if($client->seller_id == $seller->id) selected @endif>{{$seller->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -229,7 +232,7 @@
                 <select name="client[manager_id]" class="form-control" id="manager_id" style="width: 100%">
                     <option value="0" disabled selected>Seleccione uma das opções</option>
                     @foreach(App\Manager::all() as $manager)
-                        <option value="{{$manager->id}}">{{$manager->name}}</option>
+                        <option value="{{$manager->id}}" @if($client->manager_id == $manager->id) selected @endif>{{$manager->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -255,15 +258,15 @@
                 <div class="row">
                     <div class="form-group col-lg-4">
                         <select name="client[close]" class="form-control" id="close" style="width: 100%">
-                            <option value="1">Sim</option>
-                            <option value="0">Não</option>
+                            <option value="1" @if($client->close== "Sim") selected @endif>Sim</option>
+                            <option value="0" @if($client->close== "Não") selected @endif>Não</option>
                         </select>
                     </div>
-                    <div class="form-group col-lg-6 hidden" id="justify_bar">
+                    <div class="form-group col-lg-6 @if(!isset($isEdit) && !$isEdit || $client->close == "Sim")hidden @endif" id="justify_bar">
                         <select name="client[n_close_justification_id]" class="form-control" id="n_close_justification" style="width: 100%">
                             <option value="0" disabled selected>Seleccione uma das opções</option>
                             @foreach(App\Justification::all() as $justification)
-                                <option value="{{$justification->id}}">{{$justification->description}}</option>
+                                <option value="{{$justification->id}}" @if($client->n_close_justification_id == $justification->id) selected @endif>{{$justification->description}}</option>
                             @endforeach
                         </select>
                     </div>
