@@ -6,7 +6,7 @@
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>A</b>LT</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>CRM</b> BackOffice</span>
+        <span class="logo-lg"><b>CRM</b> SmartLife</span>
     </a>
 
     <!-- Header Navbar -->
@@ -35,9 +35,9 @@
                             <!-- The user image in the menu -->
                             <li class="user-header">
                                 <img src="{{ Gravatar::get($user->email) }}" class="img-circle" alt="User Image" />
-                                <p>
-                                    {{ Auth::user()->name }}
-                                    {{--<small>{{ trans('adminlte_lang::message.login') }} Nov. 2012</small>--}}
+                                <p font-size="20px">
+                                    {{ Auth::user()->name }}<br>
+                                    <small>{{ Auth::user()->roles()->first()->display_name}}</small>
                                 </p>
                             </li>
 
