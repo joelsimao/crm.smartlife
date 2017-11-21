@@ -4,6 +4,7 @@
     </div>
     <div class="box-body">
         <div class="row">
+            {{--Q--}}
             <div class="form-group col-lg-6">
                 <label for="agency[name]">Nome da Agência:</label>
                 {{ Form::text('agency[name]', null, array('class' => 'form-control')) }}
