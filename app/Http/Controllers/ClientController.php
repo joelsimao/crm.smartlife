@@ -29,7 +29,7 @@ class ClientController extends Controller
         $appends = collect();
         $clients = $this->get_clients($agency_id, $seller_id, $manager_id, $supervisor_code, $operator_code, $ds, $de, $appends)->paginate(15);
         $clients = $clients->appends($appends->toArray());
-        return view('admin.client.show', compact('clients', 'agency_id','seller_id', 'manager_id', 'supervisor_code', 'operator_code', 'ds', 'de'));
+        return view('admin.client.index', compact('clients', 'agency_id','seller_id', 'manager_id', 'supervisor_code', 'operator_code', 'ds', 'de'));
     }
 
     /**
