@@ -39,12 +39,12 @@
             <div class="col-lg-6">
                 <h4><b>1º Titular</b></h4>
             </div>
-            <div class="col-lg-6 2ndHolder_title hidden">
+            <div class="col-lg-6 2ndHolder_title @if(isset($client) && isset($isEdit) && !$isEdit && $client->first_holder_name == null) hidden @endif" >
                 <h4><b>2º Titular</b></h4>
             </div>
         </div>
         <div class="row">
-            <div class="form-group col-lg-12 1ndHolder_form">
+            <div class="form-group @if(isset($client) && isset($isEdit) && !$isEdit && $client->first_holder_name == null) col-lg-12 @else col-lg-6 @endif 1ndHolder_form">
                 <div class="form-group col-lg-12 1ndHolder_form_name">
                     <label for="client[1st_holder_name]">Nome <b>*</b>:</label>
                     {{ Form::text('client[first_holder_name]', isset($client) ? $client->first_holder_name : null, array('class' => 'form-control')) }}
@@ -73,7 +73,7 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group col-lg-6 2ndHolder_form hidden">
+            <div class="form-group col-lg-6 2ndHolder_form @if(isset($client) && isset($isEdit) && !$isEdit && $client->first_holder_name == null) hidden @endif">
                 <div class="form-group col-lg-12">
                     <label for="client[2nd_holder_name]">Nome:</label>
                     {{ Form::text('client[second_holder_name]', isset($client) ? $client->second_holder_name : null, array('class' => 'form-control')) }}
@@ -103,7 +103,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row @if(isset($client) && isset($isEdit) && $isEdit) hidden @endif">
             <div class="form-group col-lg-12"></div>
             <div class="form-group col-lg-1">
                 <button type="button" class="btn btn-info" id="addHolder"><span><i class="fa fa-plus-square-o" aria-hidden="true"></i> 2ª Titular</span></button>
@@ -154,17 +154,23 @@
                 </select>
             </div>
             <div class="form-group col-lg-4">
+                @if(isset($client) && isset($isEdit) && $isEdit)
+                    @php
+                        $voucher_type= preg_replace('/[^a-zA-Z]/', '', $client->voucher);
+                        $voucher_code = preg_replace('/[^0-9]/', '', $client->voucher);
+                    @endphp
+                @endif
                 <div class="row">
                     <div class="form-group col-lg-4">
                         <label for="client[voucher_type]">Voucher <b>*</b>:</label>
                         <select name="client[voucher_type]" class="form-control" id="voucher_type" style="width: 100%;">
-                            <option value="DC">DC</option>
-                            <option value="H">H</option>
+                            <option value="DC" @if($voucher_type == "DC") selected @endif>DC</option>
+                            <option value="H" @if($voucher_type == "H") selected @endif>H</option>
                         </select>
                     </div>
                     <div class="form-group col-lg-8">
                         <label for="client[voucher_code]"> </label>
-                        {{ Form::text('client[voucher_code]', null, array('class' => 'form-control', 'style' => 'margin-top: 11px; margin-left: -25px;')) }}
+                        {{ Form::text('client[voucher_code]', isset($client) ? $voucher_code : null, array('class' => 'form-control', 'style' => 'margin-top: 11px; margin-left: -25px;')) }}
                     </div>
                 </div>
             </div>

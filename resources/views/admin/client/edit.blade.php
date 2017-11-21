@@ -1,7 +1,10 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-    Editar Cliente - {{$client->name}}
+    Editar Cliente - {{$client->first_holder_name}}
+@endsection
+@section('contentheader_title')
+    Sócio Nº {{$client->id ." - ".$client->first_holder_name}}
 @endsection
 
 @section('main-content')

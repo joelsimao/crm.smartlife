@@ -17,28 +17,32 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>Nome</th>
-                                <th>Morada</th>
-                                <th>Código Postal</th>
-                                <th>Localidade</th>
-                                <th>Nº de Telefone</th>
-                                <th>Nº de Telemóvel</th>
-                                <th>NIF</th>
+                                <th>Data</th>
+                                <th>Agência</th>
+                                <th>Nome Titular</th>
+                                <th>Idade</th>
                                 <th>Profissão</th>
+                                <th>Hora de Entrada</th>
+                                <th>Hora de Saída</th>
+                                <th>Total Tour</th>
+                                <th>Nº de Voucher</th>
+                                <th>Fecho</th>
                                 <th>Opções</th>
                             </tr>
                             </thead>
                             <tbody>
                                 @foreach($clients as $client)
                                 <tr>
+                                    <td>{{$client->visit_date}}</td>
+                                    <td>{{$client->agency->name." ". $client->agency->city}}</td>
                                     <td>{{$client->first_holder_name}}</td>
-                                    <td>{{$client->address}}</td>
-                                    <td>{{$client->zipcode}}</td>
-                                    <td>{{$client->city}}</td>
-                                    <td>{{$client->phone_number}}</td>
-                                    <td>{{$client->mobile_phone_number}}</td>
-                                    <td>{{$client->nif}}</td>
-                                    <td>{{$client->job}}</td>
+                                    <td>{{$client->first_holder_age}}</td>
+                                    <td>{{$client->first_holder_job->name}}</td>
+                                    <td>{{$client->entry_hour}}</td>
+                                    <td>{{$client->leave_hour}}</td>
+                                    <td>{{$client->h_tour}}</td>
+                                    <td>{{$client->voucher}}</td>
+                                    <td>{{$client->close}}</td>
                                     <td>
                                             {{ Form::open(array('url' => 'client/'.$client->id ,'method' => 'DELETE')) }}
                                                 <a href="{{"client/".$client->id."/edit"}}" class="btn btn-warning"><i class='fa fa-pencil'></i></a>
