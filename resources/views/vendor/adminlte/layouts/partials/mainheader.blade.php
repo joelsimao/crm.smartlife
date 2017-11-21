@@ -35,7 +35,7 @@
                             <!-- The user image in the menu -->
                             <li class="user-header">
                                 <img src="{{ Gravatar::get($user->email) }}" class="img-circle" alt="User Image" />
-                                <p font-size="20px">
+                                <p>
                                     {{ Auth::user()->name }}<br>
                                     <small>{{ Auth::user()->roles()->first()->display_name}}</small>
                                 </p>
