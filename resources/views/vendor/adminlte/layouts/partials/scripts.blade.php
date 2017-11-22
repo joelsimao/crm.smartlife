@@ -134,5 +134,24 @@
 <script>
     $(document).ready(function() {
         $('.js-select').select2();
+        clock();
     });
+    function clock() {
+        var today = new Date();
+        var d = addZero(today.getDate());
+        var mth = addZero(today.getMonth());
+        var y = today.getFullYear();
+        var h = addZero(today.getHours());
+        var m = addZero(today.getMinutes());
+        var s = addZero(today.getSeconds());
+        $('#clock').text(d+"/"+ mth +"/"+ y + " - "+ h + ":" + m + ":" + s);
+        setTimeout('clock()',500);
+    }
+
+    function addZero(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
 </script>
