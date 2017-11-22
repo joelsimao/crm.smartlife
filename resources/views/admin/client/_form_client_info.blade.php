@@ -164,8 +164,8 @@
                     <div class="form-group col-lg-4">
                         <label for="client[voucher_type]">Voucher <b>*</b>:</label>
                         <select name="client[voucher_type]" class="form-control" id="voucher_type" style="width: 100%;">
-                            <option value="DC" @if($voucher_type == "DC") selected @endif>DC</option>
-                            <option value="H" @if($voucher_type == "H") selected @endif>H</option>
+                            <option value="DC" @if(isset($client) && $voucher_type == "DC") selected @endif>DC</option>
+                            <option value="H" @if(isset($client) && $voucher_type == "H") selected @endif>H</option>
                         </select>
                     </div>
                     <div class="form-group col-lg-8">
