@@ -2,6 +2,7 @@
 
 namespace App;
 
+use HighIdeas\UsersOnline\Traits\UsersOnlineTrait;
 use Illuminate\Notifications\Notifiable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -10,6 +11,7 @@ class User extends Authenticatable
 {
     use Notifiable;
     use EntrustUserTrait;
+    use UsersOnlineTrait;
 
     /**
      * The attributes that are mass assignable.
