@@ -19,7 +19,7 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 <li>
-                    <a style="pointer-events: none;"> {{Auth::user()->allOnline()->count()}} Utilizadores Online</a>
+                    <a style="pointer-events: none;"> {{Activity::users()->count()}} Utilizadores Online</a>
                 </li>
                 <li>
                     <a>Recursos Humanos</a>

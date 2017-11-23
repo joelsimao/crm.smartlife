@@ -197,6 +197,11 @@ return [
          * Zizaco Entrust
          */
         Zizaco\Entrust\EntrustServiceProvider::class,
+
+        HighIdeas\UsersOnline\UsersOnlineServiceProvider::class,
+        HighIdeas\UsersOnline\Providers\UsersOnlineEventServiceProvider::class,
+
+        Kim\Activity\ActivityServiceProvider::class
     ],
 
     /*
@@ -271,6 +276,8 @@ return [
          * Laracasts Flashmessages
          */
         Laracasts\Flash\FlashServiceProvider::class,
+
+        'Activity' => Kim\Activity\ActivityFacade::class,
 
     ],
 
