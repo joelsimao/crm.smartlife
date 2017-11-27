@@ -19,13 +19,13 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 <li>
-                    <a style="pointer-events: none;"> {{Activity::users()->count()}} Utilizadores Online</a>
+                    <a href="/online_users"> {{Activity::users()->count()}} Utilizadores Online</a>
                 </li>
                 <li>
-                    <a>Recursos Humanos</a>
+                    <a href="/human_resources">Recursos Humanos</a>
                 </li>
                 <li>
-                    <a>Club1970</a>
+                    <a href="/club">Club1970</a>
                 </li>
                 <li>
                     <a>Contabilidade</a>
@@ -55,13 +55,13 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="{{ url('/settings') }}" class="btn btn-default btn-flat">{{ trans('adminlte_lang::message.profile') }}</a>
+                                <a href="/users/{{Auth::user()->id}}/settings" class="btn btn-default btn-flat">Configurações</a>
                             </div>
                             <div class="pull-right">
                                 <a href="{{ url('/logout') }}" class="btn btn-default btn-flat" id="logout"
                                    onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                    {{ trans('adminlte_lang::message.signout') }}
+                                    Sair
                                 </a>
 
                                 <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
