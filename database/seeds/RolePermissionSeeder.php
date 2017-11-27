@@ -14,17 +14,23 @@ class RolePermissionSeeder extends Seeder
     public function run()
     {
         //Add new roles
-        $admin = new Role();
-        $admin->name = 'admin';
-        $admin->display_name ='Administrador';
-        $admin->description = 'User allowed to insert and edit jobs and manage clients and users';
-        $admin->save();
+        if(App::environment(['production', 'development'])){
+            $file = 'C:\inetpub\vhosts\smartlife.pt\crm.smartlife.pt\storage\app\csv\roles.csv';
+        } else {
+            $file = storage_path('app/csv/roles.csv');
+        }
 
-        $operator = new Role();
-        $operator->name = 'operator';
-        $operator->display_name ='Operador';
-        $operator->description = 'User allowed to manage clients';
-        $operator->save();
+        $roles=csvToArray($file);
+        foreach ($roles as $role){
+            Role::create([
+                'id' => $role["id"],
+                'name' => $role["name"],
+                'display_name' => $role["display_name"],
+                'description' => $role["description"],
+                'created_at' => $role["created_at"],
+                'updated_at' => $role["updated_at"],
+            ]);
+        }
 
 
         //Add Permissions
@@ -53,8 +59,8 @@ class RolePermissionSeeder extends Seeder
         $insertJob->save();
 
         //Attach Permissions to Roles
-        $admin->attachPermissions(array($insertUser, $editUser, $deleteUser, $insertJob));
-        $operator->attachPermissions(array($insertUser, $editUser, $deleteUser, $insertJob));
+//        $admin->attachPermissions(array($insertUser, $editUser, $deleteUser, $insertJob));
+//        $operator->attachPermissions(array($insertUser, $editUser, $deleteUser, $insertJob));
 
 
     }
