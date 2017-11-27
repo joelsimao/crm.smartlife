@@ -30,6 +30,10 @@ Route::group(['middleware' => 'auth'], function () {
     #adminlte_routes
 });
 
+Route::resource('user', 'UserController', ['only' => [
+    'update'
+]]);
+
 Route::resource('client', 'ClientController');
 
 Route::resource('job', 'JobController', ['only' => [
@@ -55,6 +59,17 @@ Route::resource('manager', 'ManagerController', ['only' => [
 Route::resource('seller', 'SellerController', ['only' => [
     'create', 'store'
 ]]);
+
+
+Route::get('/online_users', function(){
+    return view('admin.include.online_users');
+});
+
+Route::get('/club', function(){
+    return view('adminlte::home');
+});
+
+Route::get('/users/{id}/settings', 'UserController@show');
 
 Route::get('/age', 'ScriptController@age_calculator');
 Route::get('/get_supervisor', 'ScriptController@get_supervisor');
