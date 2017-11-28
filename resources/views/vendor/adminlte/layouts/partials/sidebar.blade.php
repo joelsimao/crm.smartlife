@@ -53,6 +53,24 @@
                 <!-- ./Upsheet Create -->
             @endif
 
+            @if(\Request::is('rh') || \Request::is('rh/*'))
+                <!-- Upsheet Create -->
+                <li class="treeview">
+                    <a href="/users/{{Auth::user()->id}}"><i class='fa fa-user'></i><span> Ver a minha ficha</span></a>
+
+                </li>
+                <li class="treeview">
+                    <a href="#"><i class='fa fa-pencil'></i><span> Inserir Colaborador</span></a>
+                </li>
+                <li class="treeview">
+                    <a href="#"><i class='fa fa-users'></i><span> Lista de Colaboradores</span></a>
+                </li>
+                <li class="treeview">
+                    <a href="#"><i class='fa fa-handshake-o'></i><span> Lista de Vendedores</span></a>
+                </li>
+                <!-- ./Upsheet Create -->
+            @endif
+
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
