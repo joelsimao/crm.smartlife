@@ -61,14 +61,26 @@ Route::resource('seller', 'SellerController', ['only' => [
 ]]);
 
 
+
 Route::get('/online_users', function(){
-    return view('admin.include.online_users');
+    return view('admin.homepages.online_users');
+});
+
+Route::get('/rh', function(){
+    return view('admin.homepages.rh');
 });
 
 Route::get('/club', function(){
-    return view('adminlte::home');
+    return view('admin.homepages.club');
 });
 
+Route::get('/accounting', function(){
+    return view('admin.homepages.accounting');
+});
+
+Route::get('/administration', function(){
+    return view('admin.homepages.administration');
+});
 Route::get('/users/{id}/settings', 'UserController@show');
 
 Route::get('/age', 'ScriptController@age_calculator');

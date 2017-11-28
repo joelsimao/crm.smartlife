@@ -22,16 +22,16 @@
                     <a href="/online_users"> {{Activity::users()->count()}} Utilizadores Online</a>
                 </li>
                 <li>
-                    <a href="/human_resources">Recursos Humanos</a>
+                    <a href="/rh">Recursos Humanos</a>
                 </li>
                 <li>
                     <a href="/club">Club1970</a>
                 </li>
                 <li>
-                    <a>Contabilidade</a>
+                    <a href="/accounting">Contabilidade</a>
                 </li>
                 <li>
-                    <a>Administração</a>
+                    <a href="/administration">Administração</a>
                 </li>
                 <!-- User Account Menu -->
                 <li class="dropdown user user-menu" id="user_menu">
