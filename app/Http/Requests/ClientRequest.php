@@ -49,7 +49,7 @@ class ClientRequest extends FormRequest
             'client.supervisor_id' => 'required',
             'client.seller_id' => 'required',
             'client.manager_id' => 'required',
-            'client.obs'    => 'min:0|max:255',
+            'client.obs'    => 'min:0|max:1000',
             'client.close' => 'required',
             'client.n_close_justification_id' => 'required_if:close,0'
         ];
