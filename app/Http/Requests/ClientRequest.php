@@ -38,7 +38,7 @@ class ClientRequest extends FormRequest
             'client.phone_number' => 'numeric|min:0|min:9|nullable',
             'client.mobile_phone_number' => 'required|numeric|min:9',
             'client.email' => 'email|nullable',
-            'client.address' => 'alpha_dash|nullable',
+            'client.address' => 'nullable',
             'client.marital_status_id' => 'required',
             'client.voucher_type' => 'required',
             'client.voucher_code' => 'required|min:4',
