@@ -60,6 +60,7 @@ Route::resource('seller', 'SellerController', ['only' => [
     'create', 'store'
 ]]);
 
+Route::resource('rh/collaborator', 'CollaboratorController');
 
 
 Route::get('/online_users', function(){

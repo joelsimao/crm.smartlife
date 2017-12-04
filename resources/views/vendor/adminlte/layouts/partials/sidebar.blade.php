@@ -60,7 +60,7 @@
 
                 </li>
                 <li class="treeview">
-                    <a href="#"><i class='fa fa-pencil'></i><span> Inserir Colaborador</span></a>
+                    <a href="/rh/collaborator/create"><i class='fa fa-pencil'></i><span> Inserir Colaborador</span></a>
                 </li>
                 <li class="treeview">
                     <a href="#"><i class='fa fa-users'></i><span> Lista de Colaboradores</span></a>
