@@ -1,5 +1,6 @@
 <?php
 
+use App\Phrase;
 use Illuminate\Database\Seeder;
 
 class PhraseSeeder extends Seeder
@@ -17,9 +18,9 @@ class PhraseSeeder extends Seeder
             $file = storage_path('app/csv/phrases.csv');
         }
 
-        $agencies=csvToArray($file);
-        foreach ($agencies as $agency){
-            Agency::create($agency);
+        $phrases=csvToArray($file);
+        foreach ($phrases as $phrase){
+            Phrase::create($phrase);
         }
     }
 }
