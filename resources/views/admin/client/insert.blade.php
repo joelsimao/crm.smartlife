@@ -20,6 +20,12 @@
     </div>
 @endsection
 
+@section('phrases-content')
+    @if(\Request::is('club/*') || \Request::is('club'))
+        <h4>"{{\App\Phrase::all()->random(1)->first()->phrase}}"</h4>
+    @endif
+@endsection
+
 @section('scripts')
 @parent
     <script>

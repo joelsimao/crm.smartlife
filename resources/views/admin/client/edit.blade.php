@@ -22,3 +22,10 @@
         </div>
     </div>
 @endsection
+@section('phrases-content')
+    @if(\Request::is('club/*') || \Request::is('club'))
+        <div class="nav bottom-navbar" align="center">
+            <h4>"{{\App\Phrase::all()->random(1)->first()->phrase}}"</h4>
+        </div>
+    @endif
+@endsection

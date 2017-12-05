@@ -48,8 +48,11 @@ desired effect
         @include('flash::message')
             <!-- Your Page Content Here -->
             @yield('main-content')
+            @yield('phrases-content')
         </section><!-- /.content -->
+
     </div><!-- /.content-wrapper -->
+
 
     @include('adminlte::layouts.partials.controlsidebar')
 

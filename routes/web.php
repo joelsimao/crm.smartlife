@@ -34,7 +34,7 @@ Route::resource('user', 'UserController', ['only' => [
     'update'
 ]]);
 
-Route::resource('client', 'ClientController');
+Route::resource('club/client', 'ClientController');
 
 Route::resource('job', 'JobController', ['only' => [
     'create', 'store'
