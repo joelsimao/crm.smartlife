@@ -10,8 +10,14 @@
                 <li class="treeview">
                     <a href="#"><i class='fa fa-address-card'></i> <span>Upsheets</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
-                        <li><a href="club/client">Mostrar</a></li>
-                        <li><a href="club/client/create">Inserir</a></li>
+                        @if(App::environment(['production', 'development'])){
+                            <li><a href="/client">Mostrar</a></li>
+                            <li><a href="/client/create">Inserir</a></li>
+                        } else {
+                        <li><a href="/club/client">Mostrar</a></li>
+                        <li><a href="/club/client/create">Inserir</a></li>
+                        }
+
                         <li class="treeview">
                             <a href="#"><i class='fa fa-briefcase'></i> <span>Profissões</span> <i class="fa fa-angle-left pull-right"></i></a>
                             <ul class="treeview-menu">
