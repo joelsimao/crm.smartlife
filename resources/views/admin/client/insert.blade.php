@@ -8,7 +8,7 @@
     <div class="container-fluid spark-screen">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-            {{ Form::open(array('url' => '/client')) }}
+            {{ Form::open(array('url' => 'club/client')) }}
                 @include('admin.client._form_client_info')
                 {{ Form::submit('Inserir') }}
             {{Form::close()}}
