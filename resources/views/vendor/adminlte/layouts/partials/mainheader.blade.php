@@ -25,7 +25,7 @@
                     <a href="/rh">Recursos Humanos</a>
                 </li>
                 <li>
-                    <a href="/club">Club1970</a>
+                    <a href="/database">Base de Dados</a>
                 </li>
                 <li>
                     <a href="/accounting">Contabilidade</a>
