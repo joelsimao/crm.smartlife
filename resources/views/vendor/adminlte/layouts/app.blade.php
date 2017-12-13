@@ -45,7 +45,10 @@ desired effect
 
         <!-- Main content -->
         <section class="content">
-        @include('flash::message')
+            <div class="alert alert-success message hidden">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            </div>
+            @include('flash::message')
             <!-- Your Page Content Here -->
             @yield('main-content')
             @yield('phrases-content')

@@ -127,7 +127,7 @@
         });
     });
 
-    $('div.alert-success').delay(3000).fadeOut(350);
+    $('div.alert-success').not('message').delay(3000).fadeOut(350);
 </script>
 
 {{--Script of select2--}}
@@ -153,5 +153,14 @@
             i = "0" + i;
         }
         return i;
+    }
+</script>
+
+<script>
+    function flash_message(message) {
+        $('.message').removeClass('hidden');
+        $('.message').append('<span id="liked_txt">'+ message +'</span>');
+        $('.message').delay(3000).fadeOut(350);
+        $('.message').removeAttr('style');
     }
 </script>

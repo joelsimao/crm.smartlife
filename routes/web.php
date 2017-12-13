@@ -40,8 +40,8 @@ Route::resource('job', 'JobController', ['only' => [
     'create', 'store'
 ]]);
 
-Route::resource('agency', 'AgencyController', ['only' => [
-    'create', 'store'
+Route::resource('administration/agency', 'AgencyController', ['only' => [
+    'create', 'store'/*, 'update'*/, 'destroy'
 ]]);
 
 Route::resource('supervisor', 'SupervisorController', ['only' => [
@@ -87,3 +87,10 @@ Route::get('/users/{id}/settings', 'UserController@show');
 Route::get('/age', 'ScriptController@age_calculator');
 Route::get('/get_supervisor', 'ScriptController@get_supervisor');
 Route::get('/tour_calculate', 'ScriptController@tour_calculate');
+
+Route::get('administration/agencies', 'AgencyController@index');
+
+Route::get('administration/agency/{id}', 'AgencyController@update_agency');
+
+Route::get('administration/agency/{id}', 'AgencyController@act_deact_agency');
+

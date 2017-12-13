@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Agency;
 use App\Operator;
 use App\Supervisor;
 use Carbon\Carbon;
@@ -28,4 +29,5 @@ class ScriptController extends Controller
         $tour = $leave_hour->diff($entry_hour)->format('%Hh%Im');
         return response()->json(compact('tour'));
     }
+
 }
