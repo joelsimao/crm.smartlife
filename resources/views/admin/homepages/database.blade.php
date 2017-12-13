@@ -1,7 +1,7 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-    Club1970
+    Base de Dados
 @endsection
 
 @section('main-content')
