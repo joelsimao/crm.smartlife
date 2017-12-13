@@ -16,7 +16,7 @@
 @endsection
 
 @section('phrases-content')
-    @if(\Request::is('club/*') || \Request::is('club'))
+    @if(\Request::is('database/*') || \Request::is('database'))
         <div class="bottom-navbar" align="center">
             <h4>"{{\App\Phrase::all()->random(1)->first()->phrase}}"</h4>
         </div>
