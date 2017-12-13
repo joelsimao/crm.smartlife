@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Client;
-use App\Http\Requests\ClientRequest;
+use App\Upsheet;
+use App\Http\Requests\UpsheetRequest;
 use App\Operator;
 use App\Supervisor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Laracasts\Flash\Flash;
 
-class ClientController extends Controller
+class UpsheetController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -45,10 +45,10 @@ class ClientController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param ClientRequest|Request $request
+     * @param UpsheetRequest|Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ClientRequest $request)
+    public function store(UpsheetRequest $request)
     {
         $client = $request->client;
         $voucher = $client["voucher_type"].$client["voucher_code"];
@@ -66,7 +66,7 @@ class ClientController extends Controller
         $client=array_add($client, 'voucher', $voucher);
         $client=array_add($client, 'to', $to);
         $client=array_add($client, 'close', $close);
-        Client::create($client);
+        Upsheet::create($client);
         flash('Cliente Inserido Com Sucesso!!!')->important()->success();
         return redirect()->back();
     }
@@ -90,20 +90,20 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        $client = Client::FindOrFail($id);
+        $client = Upsheet::FindOrFail($id);
         return view('admin.client.edit', compact('client'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param ClientRequest|Request $request
+     * @param UpsheetRequest|Request $request
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ClientRequest $request, $id)
+    public function update(UpsheetRequest $request, $id)
     {
-        $client = Client::FindOrFail($id);
+        $client = Upsheet::FindOrFail($id);
         $client->update($request->client);
         return redirect()->back();
     }
@@ -116,7 +116,7 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        $client = Client::findOrFail($id);
+        $client = Upsheet::findOrFail($id);
         $client->delete();
         return redirect()->back();
     }
@@ -134,7 +134,7 @@ class ClientController extends Controller
      * @return
      */
     function get_clients($agency_id, $seller_id, $manager_id, $supervisor_code, $operator_code, $ds, $de, &$appends, $export=false){
-        $clients=Client::orderBy('first_holder_name');
+        $clients=Upsheet::orderBy('first_holder_name');
         if($agency_id != null){
             $clients = $clients->where('agency_id', $agency_id);
             if(!$export)

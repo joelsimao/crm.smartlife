@@ -34,7 +34,7 @@ Route::resource('user', 'UserController', ['only' => [
     'update'
 ]]);
 
-Route::resource('club/client', 'ClientController');
+Route::resource('database/upsheet', 'UpsheetController');
 
 Route::resource('job', 'JobController', ['only' => [
     'create', 'store'
@@ -71,8 +71,8 @@ Route::get('/rh', function(){
     return view('admin.homepages.rh');
 });
 
-Route::get('/club', function(){
-    return view('admin.homepages.club');
+Route::get('/database', function(){
+    return view('admin.homepages.database');
 });
 
 Route::get('/accounting', function(){
@@ -88,9 +88,15 @@ Route::get('/age', 'ScriptController@age_calculator');
 Route::get('/get_supervisor', 'ScriptController@get_supervisor');
 Route::get('/tour_calculate', 'ScriptController@tour_calculate');
 
+
 Route::get('administration/agencies', 'AgencyController@index');
 
 Route::get('administration/agency/{id}', 'AgencyController@update_agency');
 
 Route::get('administration/agency/{id}', 'AgencyController@act_deact_agency');
+
+Route::get('administration/jobs', 'JobController@index');
+
+Route::get('administration/job/{id}', 'JobController@update_job');
+
 
