@@ -29,7 +29,7 @@ class UpsheetController extends Controller
         $appends = collect();
         $clients = $this->get_clients($agency_id, $seller_id, $manager_id, $supervisor_code, $operator_code, $ds, $de, $appends)->paginate(15);
         $clients = $clients->appends($appends->toArray());
-        return view('admin.client.index', compact('clients', 'agency_id','seller_id', 'manager_id', 'supervisor_code', 'operator_code', 'ds', 'de'));
+        return view('admin.upsheet.index', compact('clients', 'agency_id','seller_id', 'manager_id', 'supervisor_code', 'operator_code', 'ds', 'de'));
     }
 
     /**
@@ -39,7 +39,7 @@ class UpsheetController extends Controller
      */
     public function create()
     {
-        return view('admin.client.insert');
+        return view('admin.upsheet.insert');
     }
 
     /**
@@ -91,7 +91,7 @@ class UpsheetController extends Controller
     public function edit($id)
     {
         $client = Upsheet::FindOrFail($id);
-        return view('admin.client.edit', compact('client'));
+        return view('admin.upsheet.edit', compact('client'));
     }
 
     /**
