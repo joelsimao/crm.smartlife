@@ -8,8 +8,8 @@
     <div class="container-fluid spark-screen">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-            {{ Form::open(array('url' => 'club/client')) }}
-                @include('admin.client._form_client_info')
+            {{ Form::open(array('url' => 'databease/upsheet')) }}
+                @include('admin.upsheet._form_client_info')
                 {{ Form::submit('Inserir') }}
             {{Form::close()}}
 
@@ -21,7 +21,7 @@
 @endsection
 
 @section('phrases-content')
-    @if(\Request::is('club/*') || \Request::is('club'))
+    @if(\Request::is('database/*') || \Request::is('database'))
         <h4>"{{\App\Phrase::all()->random(1)->first()->phrase}}"</h4>
     @endif
 @endsection
