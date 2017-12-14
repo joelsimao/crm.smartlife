@@ -8,7 +8,7 @@
     <div class="container-fluid spark-screen">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-            {{ Form::open(array('url' => 'databease/upsheet')) }}
+            {{ Form::open(array('url' => 'database/upsheet')) }}
                 @include('admin.upsheet._form_client_info')
                 {{ Form::submit('Inserir') }}
             {{Form::close()}}
