@@ -25,7 +25,7 @@
             </div>
             <div class="form-group col-lg-6">
                 <label for="upsheet[agency_id]">Agência <b>*</b>:</label>
-                <select name="upsheet[agency_id]" class="form-control js-select">
+                <select name="upsheet[agency_id]" class="form-control js-select" style="width: 100%">
                     <option value="0" disabled selected>Seleccione uma das opções</option>
                     @foreach(App\Agency::all() as $agency)
                         <option value="{{$agency->id}}"
@@ -39,12 +39,12 @@
             <div class="col-lg-6">
                 <h4><b>1º Titular</b></h4>
             </div>
-            <div class="col-lg-6 2ndHolder_title @if(isset($client) && isset($isEdit) && !$isEdit && $client->first_holder_name == null) hidden @endif" >
+            <div class="col-lg-6 2ndHolder_title {{--@if(isset($client) && isset($isEdit) && !$isEdit && $client->first_holder_name == null)--}} hidden {{--@endif--}}" >
                 <h4><b>2º Titular</b></h4>
             </div>
         </div>
         <div class="row">
-            <div class="form-group @if(isset($client) && isset($isEdit) && !$isEdit && $client->first_holder_name == null) col-lg-12 @else col-lg-6 @endif 1ndHolder_form">
+            <div class="form-group {{--@if(isset($client) && isset($isEdit) && !$isEdit && $client->first_holder_name == null) --}}col-lg-12 {{--@else col-lg-6 @endif --}}1ndHolder_form">
                 <div class="form-group col-lg-12 1ndHolder_form_name">
                     <label for="upsheet[first_holder_name]">Nome <b>*</b>:</label>
                     {{ Form::text('upsheet[first_holder_name]', isset($client) ? $client->first_holder_name : null, array('class' => 'form-control')) }}
@@ -73,7 +73,7 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group col-lg-6 2ndHolder_form @if(isset($client) && isset($isEdit) && !$isEdit && $client->first_holder_name == null) hidden @endif">
+            <div class="form-group col-lg-6 2ndHolder_form {{--@if(isset($client) && isset($isEdit) && !$isEdit && $client->first_holder_name == null)--}} hidden {{--@endif--}}">
                 <div class="form-group col-lg-12">
                     <label for="upsheet[2nd_holder_name]">Nome:</label>
                     {{ Form::text('upsheet[second_holder_name]', isset($client) ? $client->second_holder_name : null, array('class' => 'form-control')) }}
@@ -269,7 +269,7 @@
                             <option value="0" @if(isset($client) && $client->close== "Não") selected @endif>Não</option>
                         </select>
                     </div>
-                    <div class="form-group col-lg-6 @if(isset($client) && !isset($isEdit) && !$isEdit || isset($client) && $client->close == "Sim")hidden @endif" id="justify_bar">
+                    <div class="form-group col-lg-6 {{--@if(isset($client) && !isset($isEdit) && !$isEdit || isset($client) && $client->close == "Sim")--}} hidden {{--@endif--}}" id="justify_bar">
                         <select name="upsheet[n_close_justification_id]" class="form-control" id="n_close_justification" style="width: 100%">
                             <option value="0" disabled selected>Seleccione uma das opções</option>
                             @foreach(App\Justification::all() as $justification)

@@ -45,7 +45,7 @@
                                     <td>{{$client->close}}</td>
                                     <td>
                                             {{ Form::open(array('url' => 'client/'.$client->id ,'method' => 'DELETE')) }}
-                                                <a href="{{"upsheet".$client->id."/edit"}}" class="btn btn-warning"><i class='fa fa-pencil'></i></a>
+                                                <a href="{{"upsheet/".$client->id."/edit"}}" class="btn btn-warning"><i class='fa fa-pencil'></i></a>
                                                 <button type="submit" class="btn btn-danger"/><i class='fa fa-trash'></i></button>
                                             {{ Form::close() }}
                                     </td>
