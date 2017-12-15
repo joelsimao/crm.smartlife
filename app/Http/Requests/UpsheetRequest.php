@@ -62,7 +62,7 @@ class UpsheetRequest extends FormRequest
             'upsheet.agency_id.required'  => 'Inserir Agência',
             'upsheet.first_holder_name.required' => 'Inserir o nome do 1º titular.',
             'upsheet.first_holder_date_of_birth.required'  => 'Inserir data de nascimento do 1º titular.',
-            'upsheet.first_holdecdr_age.required' => 'Inserir a idade do 1º titular.',
+            'upsheet.first_holder_age.required' => 'Inserir a idade do 1º titular.',
             'upsheet.first_holder_job.required'  => 'Inserir a profissão do 1º titular.',
             'upsheet.mobile_phone_number.required' => 'Inserir o Nº de Telemóvel',
             'upsheet.marital_status_id.required'  => 'Inserir estado civil',

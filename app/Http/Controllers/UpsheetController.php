@@ -50,24 +50,24 @@ class UpsheetController extends Controller
      */
     public function store(UpsheetRequest $request)
     {
-        $client = $request->client;
-        $voucher = $client["voucher_type"].$client["voucher_code"];
-        if($client["to_id"] == 1){
+        $upsheet = $request->upsheet;
+        $voucher = $upsheet["voucher_type"].$upsheet["voucher_code"];
+        if($upsheet["to_id"] == 1){
             $to = "Sim";
         } else{
             $to = "Não";
         }
-        if($client["close"] == 1){
+        if($upsheet["close"] == 1){
             $close = "Sim";
         } else {
             $close = "Não";
         }
-        $client=array_except($client, array('voucher_type', 'voucher_code', 'to_id', 'close'));
-        $client=array_add($client, 'voucher', $voucher);
-        $client=array_add($client, 'to', $to);
-        $client=array_add($client, 'close', $close);
-        Upsheet::create($client);
-        flash('Cliente Inserido Com Sucesso!!!')->important()->success();
+        $upsheet=array_except($upsheet, array('voucher_type', 'voucher_code', 'to_id', 'close'));
+        $upsheet=array_add($upsheet, 'voucher', $voucher);
+        $upsheet=array_add($upsheet, 'to', $to);
+        $upsheet=array_add($upsheet, 'close', $close);
+        Upsheet::create($upsheet);
+        flash('Upsheet Inserido Com Sucesso!!!')->important()->success();
         return redirect()->back();
     }
 

@@ -46,8 +46,8 @@
         <div class="row">
             <div class="form-group @if(isset($client) && isset($isEdit) && !$isEdit && $client->first_holder_name == null) col-lg-12 @else col-lg-6 @endif 1ndHolder_form">
                 <div class="form-group col-lg-12 1ndHolder_form_name">
-                    <label for="upsheet[1st_holder_name]">Nome <b>*</b>:</label>
-                    {{ Form::text('upsheet', isset($client) ? $client->first_holder_name : null, array('class' => 'form-control')) }}
+                    <label for="upsheet[first_holder_name]">Nome <b>*</b>:</label>
+                    {{ Form::text('upsheet[first_holder_name]', isset($client) ? $client->first_holder_name : null, array('class' => 'form-control')) }}
                 </div>
                 <div class="form-group col-lg-10 1ndHolder_form_date_birth">
                     <label for="upsheet[first_holder_date_of_birth]">Data de Nascimento:</label>
@@ -59,8 +59,8 @@
                     </div>
                 </div>
                 <div class="form-group col-lg-2 1ndHolder_form_age">
-                    <label for="upsheet[1st_holder_age]">Idade <b>*</b>:</label>
-                    {{ Form::text('upsheet', isset($client) ? $client->first_holder_age : null, array('class' => 'form-control', 'id' => 'first_holder_age')) }}
+                    <label for="upsheet[first_holder_age]">Idade <b>*</b>:</label>
+                    {{ Form::text('upsheet[first_holder_age]', isset($client) ? $client->first_holder_age : null, array('class' => 'form-control', 'id' => 'first_holder_age')) }}
                 </div>
                 <div class="form-group col-lg-8 1ndHolder_form_job">
                     <label for="upsheet[first_holder_job_id]">Profissão <b>*</b>:</label>
@@ -144,7 +144,7 @@
                 {{ Form::text('upsheet[city]', isset($client) ? $client->city : null, array('class' => 'form-control')) }}
             </div>
             <div class="form-group col-lg-3">
-                <label for="upsheet[marital_status]">Estado Civil <b>*</b>:</label>
+                <label for="upsheet[marital_status_id]">Estado Civil <b>*</b>:</label>
                 <select name="upsheet[marital_status_id]" class="form-control" id="marital_status" style="width: 100%">
                     <option value="0" disabled selected>Seleccione uma das opções</option>
                     @foreach(App\MaritalStatus::all() as $marital_status)
@@ -178,7 +178,7 @@
         <div class="row hidden" id="spouse_name">
             <div class="form-group col-lg-6">
                 <label for="upsheet[spouse_name]">Nome do Conjuge <b>*</b>:</label>
-                {{ Form::text('upsheet', isset($client) ? $client->spouse_name : null, array('class' => 'form-control')) }}
+                {{ Form::text('upsheet[spouse_name]', isset($client) ? $client->spouse_name : null, array('class' => 'form-control')) }}
             </div>
         </div>
         <div class="row">
