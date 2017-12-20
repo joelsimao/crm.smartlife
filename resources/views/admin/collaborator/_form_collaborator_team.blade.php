@@ -10,8 +10,8 @@
             </div>
         </div>
         <div class="form-group col-lg-10">
-            <label for="collaborator[district_id]">Departamento:</label>
-            <select name="district_id" class="form-control">
+            <label for="collaborator[department_id]">Departamento:</label>
+            <select name="collaborator[department_id]" class="form-control">
                 <option value="0">Seleccione um departamento</option>
                 @foreach(\App\Department::all() as $department)
                     <option value="{{$department->id}}">{{$department->name}}</option>
@@ -26,33 +26,52 @@
 
         </div>
         <div class="form-group col-lg-10">
-            <label for="collaborator[district_id]">Activo:</label>
-            {{ Form::checkbox('active', true, null, ['class' => 'form-check-input']) }}
+            <div class="row">
+                <div class="form-group col-lg-8 hidden" id="coordenator">
+                    <label for="collaborator[coordenator_id]">Coordenador:</label>
+                    <select name="collaborator[coordenator_id]" class="form-control">
+                        <option value="0">Seleccione um coordenador</option>
+                        {{--@foreach(\App\Department::all() as $coordenator)--}}
+                            {{--<option value="{{$department->id}}">{{$->name}}</option>--}}
+                        {{--@endforeach--}}
+                    </select>
+                </div>
+                <div class="col-lg-4">
+                    <label>
+                        Activo: {{ Form::checkbox('active', true, null, ['class' => 'form-check-input']) }}
+                    </label>
+                </div>
+            </div>
+
         </div>
     </div>
     <div class="form-group col-lg-6">
         <div class="form-group col-lg-10">
-            <label for="collaborator[district_id]">Cargo:</label>
-            <select name="district_id" class="form-control">
-                <option value="0">Seleccione um Cargo</option>
-                @foreach(\App\Role::all() as $role)
-                    <option value="{{$role->id}}">{{$role->display_name}}</option>
-                @endforeach
-            </select>
-        </div>
+            <label for="collaborator[role_id]">Cargo:</label>
+            {{--<div class="row">--}}
+                {{--<div class="col-lg-7">--}}
+                    <select name="roles[]" class="form-control js-select" multiple="multiple" style="width: 100%" id="role_select">
+                        <option value="0" disabled="">Seleccione um Cargo</option>
+                        @foreach(\App\Role::all() as $role)
+                            <option value="{{$role->id}}">{{$role->display_name}}</option>
+                        @endforeach
+                    </select>
+                {{--</div>--}}
+                {{--<div class="col-lg-5">--}}
+                    {{--<label for="collaborator[role_id]">--}}
+                        {{--Excepção: {{ Form::checkbox('', true, null, ['class' => 'form-check-input']) }}--}}
+                    {{--</label>--}}
+                {{--</div>--}}
+            </div>
         <div class="form-group col-lg-10">
-            <label for="collaborator[district_id]">Excepção:</label>
-            {{ Form::checkbox('', true, null, ['class' => 'form-check-input']) }}
-        </div>
-        <div class="form-group col-lg-10">
-            <label for="collaborator[district_id]">Local de Trabalho:</label>
-            <select name="district_id" class="form-control">
+            <label for="collaborator[workspace_id]">Local de Trabalho:</label>
+            <select name="collaborator[workspace_id]" class="form-control">
                 <option value="0">Seleccione um local</option>
             </select>
         </div>
-        <div class="form-group col-lg-10">
-            <label for="collaborator[district_id]">Supervisor/Gerente:</label>
-            <select name="district_id" class="form-control">
+        <div class="form-group col-lg-10 hidden" id="manager">
+            <label for="collaborator[manager_id]">Supervisor/Gerente:</label>
+            <select name="collaborator[manager_id]" class="form-control">
                 <option value="0">Seleccione o supervisor/gerente</option>
             </select>
         </div>

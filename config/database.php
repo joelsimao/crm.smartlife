@@ -101,7 +101,7 @@ return [
 
     'redis' => [
 
-        'client' => 'predis',
+        'upsheet' => 'predis',
         'cluster' => false,
         'default' => [
             'host' => env('REDIS_HOST', 'localhost'),

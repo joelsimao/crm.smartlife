@@ -12,7 +12,7 @@
         @endif
         <ul class="nav nav-tabs">
             <li class="active" id="collab_info"><a href="#">Dados do Colaborador</a></li>
-            <li><a href="#" id="collab_team">Equipa</a></li>
+            <li><a href="#" id="collab_team">Dados da Empresa</a></li>
         </ul>
         @include('admin.collaborator._form_collaborator_info')
         @include('admin.collaborator._form_collaborator_team')

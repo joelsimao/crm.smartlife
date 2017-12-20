@@ -128,13 +128,23 @@
     });
 
     $('div.alert-success').not('message').delay(3000).fadeOut(350);
+
 </script>
 
 {{--Script of select2--}}
 <script>
     $(document).ready(function() {
-        $('.js-select').select2();
+        $('.js-select').select2({
+            width: 'resolve',
+            theme: 'classic'
+        });
+
         clock();
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '50%' // optional
+        });
     });
     function clock() {
         var today = new Date();

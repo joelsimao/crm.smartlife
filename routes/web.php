@@ -100,3 +100,7 @@ Route::get('administration/jobs', 'JobController@index');
 Route::get('administration/job/{id}', 'JobController@update_job');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

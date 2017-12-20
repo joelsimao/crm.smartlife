@@ -8,7 +8,7 @@
     <div class="container-fluid spark-screen">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-            {{ Form::open(array('url' => '/client')) }}
+            {{ Form::open(array('url' => 'rh/collaborator')) }}
             @include('admin.collaborator.insert')
             {{ Form::submit('Inserir') }}
             {{Form::close()}}
@@ -34,6 +34,26 @@
             $('#collab_team').removeClass('active');
             $('.collab_team_form').addClass('hidden');
             $('.collab_info_form').removeClass('hidden');
+        });
+        $('#role_select').on('change', function(){
+            if($(this).val() == 5 || $(this).val() == 9){
+                $('#coordenator').removeClass('hidden');
+                if(!$('#manager').hasClass('hidden')){
+                    $('#manager').addClass('hidden');
+                }
+            } else if($(this).val() == 7 || $(this).val() == 8){
+                $('#manager').removeClass('hidden');
+                if(!$('#coordenator').hasClass('hidden')){
+                    $('#coordenator').addClass('hidden');
+                }
+            } else {
+                if(!$('#coordenator').hasClass('hidden')){
+                    $('#coordenator').addClass('hidden');
+                }
+                if(!$('#manager').hasClass('hidden')){
+                    $('#manager').addClass('hidden');
+                }
+            }
         });
     </script>
 @endsection

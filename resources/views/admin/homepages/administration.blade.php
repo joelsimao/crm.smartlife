@@ -150,7 +150,7 @@
                                             Imagem de Fundo da página de Login
                                         </td>
                                         <td style="text-align: center;">
-                                            <a><i class="fa fa-briefcase" aria-hidden="true"></i> <span>Profissões</span></a><br>
+                                            <a href="/administration/jobs"><i class="fa fa-briefcase" aria-hidden="true"></i> <span>Profissões</span></a><br>
                                             Clientes/Ups
                                         </td>
                                         <td style="text-align: center;">
