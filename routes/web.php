@@ -36,6 +36,8 @@ Route::resource('user', 'UserController', ['only' => [
 
 Route::resource('database/upsheet', 'UpsheetController');
 
+Route::resource('database/meo_client', 'MeoClientController');
+
 Route::resource('job', 'JobController', ['only' => [
     'create', 'store'
 ]]);

@@ -1,7 +1,7 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-    Inserir Cliente
+    Inserir U
 @endsection
 
 @section('main-content')

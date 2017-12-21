@@ -6,54 +6,63 @@
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
             @if(\Request::is('database/*') || \Request::is('database'))
-                <!-- Upsheet Create -->
-                <li class="treeview">
-                    <a href="#"><i class='fa fa-address-card'></i> <span>Upsheets</span> <i class="fa fa-angle-left pull-right"></i></a>
-                    <ul class="treeview-menu">
-                        <li><a href="/database/upsheet">Mostrar</a></li>
-                        <li><a href="/database/upsheet/create">Inserir</a></li>
-                        {{--<li class="treeview">--}}
-                            {{--<a href="#"><i class='fa fa-briefcase'></i> <span>Profissões</span> <i class="fa fa-angle-left pull-right"></i></a>--}}
-                            {{--<ul class="treeview-menu">--}}
-                                {{--<li><a href="/job/create">Inserir</a></li>--}}
-                            {{--</ul>--}}
-                        {{--</li>--}}
-                        {{--<li class="treeview">--}}
-                            {{--<a href="#"><i class='fa fa-building'></i> <span>Agências</span> <i class="fa fa-angle-left pull-right"></i></a>--}}
-                            {{--<ul class="treeview-menu">--}}
-                                {{--<li><a href="/agency/create">Inserir</a></li>--}}
-                            {{--</ul>--}}
-                        {{--</li>--}}
-                        <li class="treeview">
-                            <a href="#"><i class='fa fa-users'></i> <span>Supervisores</span> <i class="fa fa-angle-left pull-right"></i></a>
-                            <ul class="treeview-menu">
-                                <li><a href="/supervisor/create">Inserir</a></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#"><i class='fa fa-user'></i> <span>Operadores</span> <i class="fa fa-angle-left pull-right"></i></a>
-                            <ul class="treeview-menu">
-                                <li><a href="/operator/create">Inserir</a></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#"><i class='fa fa-handshake-o'></i> <span>Gerentes</span> <i class="fa fa-angle-left pull-right"></i></a>
-                            <ul class="treeview-menu">
-                                <li><a href="/manager/create">Inserir</a></li>
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#"><i class='fa fa-money'></i> <span>Vendedores</span> <i class="fa fa-angle-left pull-right"></i></a>
-                            <ul class="treeview-menu">
-                                <li><a href="/seller/create">Inserir</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <!-- ./Upsheet Create -->
-                <li class="treeview">
-                    <a href="#"><i class='fa fa-users'></i><span> MEO</span></a>
-                </li>
+                @if(Auth::user()->can('manage-upsheets'))
+                    <!-- Upsheet Create -->
+                    <li class="treeview">
+                        <a href="#"><i class='fa fa-address-card'></i> <span>Upsheets</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="/database/upsheet">Mostrar</a></li>
+                            <li><a href="/database/upsheet/create">Inserir</a></li>
+                            {{--<li class="treeview">--}}
+                                {{--<a href="#"><i class='fa fa-briefcase'></i> <span>Profissões</span> <i class="fa fa-angle-left pull-right"></i></a>--}}
+                                {{--<ul class="treeview-menu">--}}
+                                    {{--<li><a href="/job/create">Inserir</a></li>--}}
+                                {{--</ul>--}}
+                            {{--</li>--}}
+                            {{--<li class="treeview">--}}
+                                {{--<a href="#"><i class='fa fa-building'></i> <span>Agências</span> <i class="fa fa-angle-left pull-right"></i></a>--}}
+                                {{--<ul class="treeview-menu">--}}
+                                    {{--<li><a href="/agency/create">Inserir</a></li>--}}
+                                {{--</ul>--}}
+                            {{--</li>--}}
+                            <li class="treeview">
+                                <a href="#"><i class='fa fa-users'></i> <span>Supervisores</span> <i class="fa fa-angle-left pull-right"></i></a>
+                                <ul class="treeview-menu">
+                                    <li><a href="/supervisor/create">Inserir</a></li>
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#"><i class='fa fa-user'></i> <span>Operadores</span> <i class="fa fa-angle-left pull-right"></i></a>
+                                <ul class="treeview-menu">
+                                    <li><a href="/operator/create">Inserir</a></li>
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#"><i class='fa fa-handshake-o'></i> <span>Gerentes</span> <i class="fa fa-angle-left pull-right"></i></a>
+                                <ul class="treeview-menu">
+                                    <li><a href="/manager/create">Inserir</a></li>
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#"><i class='fa fa-money'></i> <span>Vendedores</span> <i class="fa fa-angle-left pull-right"></i></a>
+                                <ul class="treeview-menu">
+                                    <li><a href="/seller/create">Inserir</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- ./Upsheet Create -->
+                @endif
+
+                @if(Auth::user()->can('manage-meo-clients'))
+                    <li class="treeview">
+                        <a href="#"><i class='fa fa-users'></i><span> MEO</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            {{--<li><a href="/database/upsheet">Mostrar</a></li>--}}
+                            <li><a href="/database/meo_client/create">Inserir</a></li>
+                        </ul>
+                    </li>
+                @endif
             @endif
 
             @if(\Request::is('rh') || \Request::is('rh/*'))
