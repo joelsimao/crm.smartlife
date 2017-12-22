@@ -43,6 +43,9 @@ class MeoClientController extends Controller
         $names = $request["names"];
         foreach ($names as $key => $name){
             $monthly_payment=str_replace("€", "", $request->monthly_payments[$key]);
+            if(str_contains($monthly_payment, ",")){
+                $monthly_payment=str_replace(",", ".", $monthly_payment);
+            }
             $service_array = [
                 'name' => $name,
                 'description' => $request->descriptions[$key],
