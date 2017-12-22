@@ -16,7 +16,7 @@ class CreateMeoClientsTable extends Migration
         Schema::create('meo_clients', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('nif');
+            $table->integer('nif')->unique();
             $table->string('address')->nullable();
             $table->string('zipcode')->nullable();
             $table->string('city');
