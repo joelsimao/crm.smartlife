@@ -41,10 +41,11 @@ class MeoClientController extends Controller
         $meo_client=MeoClient::create($request->meo_client);
         $names = $request["names"];
         foreach ($names as $key => $name){
+            $monthly_payment=str_replace("€", "", $request->monthly_payments[$key]);
             $service_array = [
                 'name' => $name,
                 'description' => $request->descriptions[$key],
-                'monthly_payment' => $request->monthly_payments[$key],
+                'monthly_payment' => $monthly_payment,
             ];
 //            dd($service);
             $service=Service::create($service_array);
