@@ -7,7 +7,7 @@
         {{--</select><br>--}}
     </div>
     <div class="form-group col-lg-4" id="service-descriptions">
-        <label for="meo_client[services]">Descrição <b>*</b>: </label>
+        <label for="meo_client[descriptions]">Descrição <b>*</b>: </label>
         {{ Form::textarea('descriptions[]', null, array('class' => 'form-control', 'size' => '5x5', 'id' => 'service-description')) }}
     </div>
     <div class="form-group col-lg-4" id="service-payments">

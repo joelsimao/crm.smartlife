@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MeoClientRequest;
 use App\MeoClient;
 use App\Service;
 use Carbon\Carbon;
@@ -36,7 +37,7 @@ class MeoClientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MeoClientRequest $request)
     {
         $meo_client=MeoClient::create($request->meo_client);
         $names = $request["names"];
