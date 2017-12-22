@@ -18,7 +18,8 @@ class MeoClientController extends Controller
      */
     public function index()
     {
-        //
+        $meo_clients=MeoClient::paginate(15);
+        return view('admin.meo_client.index', compact('meo_clients'));
     }
 
     /**

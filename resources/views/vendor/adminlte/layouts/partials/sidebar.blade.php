@@ -58,7 +58,7 @@
                     <li class="treeview">
                         <a href="#"><i class='fa fa-users'></i><span> MEO</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">
-                            {{--<li><a href="/database/upsheet">Mostrar</a></li>--}}
+                            <li><a href="/database/meo_client">Mostrar</a></li>
                             <li><a href="/database/meo_client/create">Inserir</a></li>
                         </ul>
                     </li>
