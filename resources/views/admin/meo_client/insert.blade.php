@@ -28,6 +28,7 @@
 @section('scripts')
     @parent
     <script>
+        var id = 0;
         $('#meo_client_services').on('click', function () {
             $(this).addClass('active');
             $('#meo_client_info').removeClass('active');
@@ -44,14 +45,21 @@
             $('.meo_client_info_form').removeClass('hidden');
         });
         $('#add_services').on('click', function(){
-            console.log('OK!!!')
-            // $('.meo_client_services_form').clone().insertAfter( "#meo_client_services_form" );
+            id = id + 1;
             var clone = $('#meo_client_services_form').clone();
+            clone.attr('id', 'meo_client_services_form'+id);
+            clone.find('input').val('');
+            clone.find('textarea').val('');
             var labels = clone.find('label');
             labels.each(function () {
-               $(this).addClass('hidden');
+                $(this).addClass('hidden');
             });
-            clone.insertAfter( "#meo_client_services_form" );
+            var after = id - 1;
+            console.log(after);
+            if(after==0)
+                clone.insertAfter( "#meo_client_services_form");
+            else
+                clone.insertAfter( "#meo_client_services_form"+after);
         })
     </script>
 @endsection
