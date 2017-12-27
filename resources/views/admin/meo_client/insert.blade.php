@@ -10,7 +10,8 @@
             <div class="col-md-8 col-md-offset-2">
                 {{ Form::open(array('url' => 'database/meo_client')) }}
                 @include('admin.meo_client.create', array('isEdit' => false))
-                {{ Form::submit('Inserir', array('class' => 'btn btn-info')) }}
+                <button class="btn btn-info"><i class="fa fa-floppy-o fa-2x" aria-hidden="true" ></i><br>Inserir</button>
+                {{--{{ Form::submit('Inserir', array('class' => 'btn btn-info')) }}--}}
                 {{Form::close()}}
                 <!-- /.box -->
             </div>
@@ -51,8 +52,9 @@
             clone.find('input').val('');
             clone.find('textarea').val('');
             var labels = clone.find('label');
-            labels.each(function () {
-                $(this).addClass('hidden');
+            labels.each(function (index) {
+                if(index!=3)
+                    $(this).addClass('hidden');
             });
             var after = id - 1;
             console.log(after);

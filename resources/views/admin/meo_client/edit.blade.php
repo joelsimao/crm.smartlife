@@ -14,7 +14,8 @@
             <div class="col-md-8 col-md-offset-2">
             {{ Form::open(array('url' => 'database/meo_client/'.$meo_client->id, 'method' => 'PUT')) }}
             @include('admin.meo_client.create', array('isEdit' => true))
-            {{ Form::submit('Editar') }}
+            <button class="btn btn-info"><i class="fa fa-floppy-o fa-2x" aria-hidden="true" ></i><br>Guardar</button>
+            {{--{{ Form::submit('<i class="fa fa-floppy-o" aria-hidden="true"> Guardar</i>', array('class' => 'btn btn-info')) }}--}}
             {{Form::close()}}
 
             <!-- /.box -->
