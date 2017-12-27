@@ -8,4 +8,5 @@ class MeoClient extends Model
 {
     protected $guarded = [];
     public $timestamps = false;
+
 }

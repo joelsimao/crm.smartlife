@@ -38,8 +38,8 @@
                                     <td>{{$meo_client->mobile_phone}}</td>
                                     <td>{{$meo_client->manager_name}}</td>
                                     <td>
-                                        {{ Form::open(array('url' => 'meo_client/'.$meo_client->id ,'method' => 'DELETE')) }}
-                                        <a href="{{"database/meo_client/".$meo_client->id."/edit"}}" class="btn btn-warning"><i class='fa fa-pencil'></i></a>
+                                        {{ Form::open(array('url' => 'database/meo_client/'.$meo_client->id ,'method' => 'DELETE')) }}
+                                        <a href="{{"meo_client/".$meo_client->id."/edit"}}" class="btn btn-warning"><i class='fa fa-pencil'></i></a>
                                         <button type="submit" class="btn btn-danger"/><i class='fa fa-trash'></i></button>
                                         {{ Form::close() }}
                                     </td>
