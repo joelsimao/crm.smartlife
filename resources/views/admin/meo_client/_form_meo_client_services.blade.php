@@ -14,7 +14,7 @@
                 {{ Form::text('monthly_payments[]', null, array('class' => 'form-control', 'id' => 'service-payment')) }}
             </div>
             <div class="form-group col-lg-3">
-                @if($key == 0) <label for="meo_client[offer]">Oferta: </label>@endif
+                <label for="meo_client[offer]">Oferta: </label>
                 {{ Form::textarea('offers[]', null,  array('class' => 'form-control', 'size' => '1x1', 'id' => 'service-description')) }}
             </div>
         </div>

@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 {{ Form::open(array('url' => 'database/meo_client')) }}
-                @include('admin.meo_client.create')
+                @include('admin.meo_client.create', array('isEdit' => false))
                 {{ Form::submit('Inserir', array('class' => 'btn btn-info')) }}
                 {{Form::close()}}
                 <!-- /.box -->

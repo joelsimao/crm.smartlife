@@ -51,8 +51,8 @@ class MeoClientController extends Controller
                 'name' => $name,
                 'description' => $request->descriptions[$key],
                 'monthly_payment' => $monthly_payment,
+                'offer'             => $request->offers[$key],
             ];
-//            dd($service);
             $service=Service::create($service_array);
             DB::table('service_meo_client')->insert(['meo_client_id' => $meo_client->id, 'service_id' => $service->id]);
         }
