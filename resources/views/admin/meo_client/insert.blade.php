@@ -62,6 +62,11 @@
                 clone.insertAfter( "#meo_client_services_form");
             else
                 clone.insertAfter( "#meo_client_services_form"+after);
-        })
+            $('#del_services').removeClass('hidden');
+        });
+        $('#del_services').on('click', function(){
+            $('#meo_client_services_form'+id).remove();
+            id=id-1;
+        });
     </script>
 @endsection

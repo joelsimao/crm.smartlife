@@ -45,4 +45,7 @@
     <div class="form-group col-lg-4">
         <button type="button" class="btn btn-info" id="add_services">+ Serviços</button>
     </div>
+    <div class="form-group col-lg-8" align="right">
+        <button type="button" class="btn btn-danger hidden" id="del_services">- Serviços</button>
+    </div>
 </div>

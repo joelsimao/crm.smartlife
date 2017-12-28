@@ -19,7 +19,6 @@
             {{Form::close()}}
 
             <!-- /.box -->
-
             </div>
         </div>
     </div>
@@ -31,12 +30,20 @@
         var id = 0;
         $(document).ready(function () {
             var services_forms = $('.meo_client_services_form');
+            console.log(services_forms.length);
             services_forms.each(function (index) {
                 id=id+1;
                 if(index!=0){
                    $(this).attr('id', 'meo_client_services_form'+id);
+                } else {
+                    $(this).attr('id', 'meo_client_services_form');
                 }
-            })
+            });
+            if(services_forms.length <=1)
+                id=0;
+            else
+                id=services_forms.length;
+            console.log(id);
         });
         
         $('#meo_client_services').on('click', function () {
@@ -61,15 +68,20 @@
             clone.find('input').val('');
             clone.find('textarea').val('');
             var labels = clone.find('label');
-            labels.each(function () {
-                $(this).addClass('hidden');
+            labels.each(function (index) {
+                if(index!=3)
+                    $(this).addClass('hidden');
             });
             var after = id - 1;
-            console.log(after);
             if(after==0)
                 clone.insertAfter( "#meo_client_services_form");
             else
                 clone.insertAfter( "#meo_client_services_form"+after);
+            $('#del_services').removeClass('hidden');
+        });
+        $('#del_services').on('click', function(){
+            $('#meo_client_services_form'+id).remove();
+            id=id-1;
         });
     </script>
 @endsection

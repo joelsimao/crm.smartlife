@@ -1,6 +1,6 @@
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">@if( isset($isEdit)) Editar Cliente MEO @else Inserir Cliente MEO @endif</h3>
+        <h3 class="box-title">@if( isset($isEdit) && $isEdit) Editar Cliente MEO @else Inserir Cliente MEO @endif</h3>
     </div>
     <div class="box-body">
         <ul class="nav nav-tabs">
