@@ -8,6 +8,7 @@ use App\Service;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class MeoClientController extends Controller
 {
@@ -18,7 +19,12 @@ class MeoClientController extends Controller
      */
     public function index()
     {
-        $meo_clients=MeoClient::paginate(15);
+        $nif = Input::get('nif');
+
+        if($nif!='' && $nif!=null)
+            $meo_clients=MeoClient::where('nif', 'like', '%'.$nif.'%')->paginate(15);
+        else
+            $meo_clients=MeoClient::paginate(15);
         return view('admin.meo_client.index', compact('meo_clients'));
     }
 

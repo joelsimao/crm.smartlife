@@ -95,6 +95,12 @@
         window.location.href = newURL + search;
     });
 
+    $('#nif').keydown(function (e){
+        if(e.keyCode == 13){
+            $("#nif_search_btn").click();
+        }
+    });
+
 /*    $('#search').keydown(function (e){
         if(e.keyCode == 13){
             $("#search_btn").click();

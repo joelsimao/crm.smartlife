@@ -13,7 +13,7 @@
                         <h3 class="box-title">Mostrar Clientes MEO</h3>
                     </div>
                     <div class="box-body">
-                        {{--@include('admin.include.search')--}}
+                        @include('admin.include.nif_search')
                         <table class="table">
                             <thead>
                             <tr>
@@ -58,6 +58,20 @@
             </div>
         </div>
     </div>
+@endsection
+@section('scripts')
+    @parent
+    <script>
+        $('#nif_search_btn').on('click', function () {
+            var nif = $('#nif').val();
+            var uri = window.location.toString();
+            if (uri.indexOf("?") > 0) {
+                var clean_uri = uri.substring(0, uri.indexOf("?"));
+                window.history.replaceState({}, document.title, clean_uri);
+            }
+            window.location.href = window.location + "?nif="+nif;
+        });
+    </script>
 @endsection
 
 @section('phrases-content')
