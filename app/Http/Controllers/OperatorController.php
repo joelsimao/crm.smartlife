@@ -15,6 +15,8 @@ class OperatorController extends Controller
     public function index()
     {
         //
+
+
     }
 
     /**
