@@ -46,6 +46,16 @@ Route::resource('administration/agency', 'AgencyController', ['only' => [
     'create', 'store'/*, 'update'*/, 'destroy'
 ]]);
 
+Route::resource('administration/role', 'RoleController', ['only' => [
+    'create', 'edit','store', 'update', 'destroy'
+]]);
+
+Route::resource('administration/permission', 'PermissionController', ['only' => [
+    'create', 'edit','store', 'update', 'destroy'
+]]);
+
+
+
 Route::resource('supervisor', 'SupervisorController', ['only' => [
     'create', 'store'
 ]]);
@@ -101,7 +111,9 @@ Route::get('administration/jobs', 'JobController@index');
 
 Route::get('administration/job/{id}', 'JobController@update_job');
 
+Route::get('administration/permission_area', 'PermissionController@index');
 
+Route::get('administration/roles', 'RoleController@index');
 
 Auth::routes();
 

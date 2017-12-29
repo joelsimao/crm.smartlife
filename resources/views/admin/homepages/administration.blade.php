@@ -42,7 +42,7 @@
                                             Áreas de Departamentos
                                         </td>
                                         <td style="text-align: center;">
-                                            <a><i class="fa fa-bookmark" aria-hidden="true"></i> <span>Cargos</span></a><br>
+                                            <a href="/administration/roles"><i class="fa fa-bookmark" aria-hidden="true"></i> <span>Cargos</span></a><br>
                                             Cargos dos Colaboradores
                                         </td>
                                         <td style="text-align: center;">
